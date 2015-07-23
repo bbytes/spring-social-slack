@@ -1,0 +1,2 @@
+http\://www.springframework.org/schema/social/spring-social-slack.xsd=org/springframework/social/slack/config/xml/spring-social-slack-1.1.xsd
+http\://www.springframework.org/schema/social/spring-social-slack-1.1.xsd=org/springframework/social/slack/config/xml/spring-social-slack-1.1.xsd

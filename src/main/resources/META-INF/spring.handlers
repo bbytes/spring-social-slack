@@ -1,0 +1,1 @@
+http\://www.springframework.org/schema/social/slack=org.springframework.social.slack.config.xml.SlackNamespaceHandler
