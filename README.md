@@ -1,5 +1,5 @@
 # spring-social-slack
-Spring Social client implementation for slack.com
+Spring Social client implementation for http://slack.com
 
 Usage 
 
