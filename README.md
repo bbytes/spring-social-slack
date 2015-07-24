@@ -3,11 +3,6 @@ Spring Social client implementation for slack.com
 
 Usage 
 
-Spring Social Security impl for http://slack.com oauth 2
-
-Maven project setup: 
-
-Add to pom.xml
 
 ```
 
