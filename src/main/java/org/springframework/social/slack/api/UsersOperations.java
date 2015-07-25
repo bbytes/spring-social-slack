@@ -15,6 +15,14 @@
  */
 package org.springframework.social.slack.api;
 
+import java.util.List;
+
+import org.springframework.social.slack.api.impl.model.SlackPresence;
+import org.springframework.social.slack.api.impl.model.SlackResponse;
+import org.springframework.social.slack.api.impl.model.SlackUser;
+import org.springframework.social.slack.api.impl.model.SlackUserStarsResponse;
+import org.springframework.social.slack.api.impl.model.UserPresence;
+
 /**
  * Defines operations for interacting with a slack User apis
  * 
@@ -22,4 +30,13 @@ package org.springframework.social.slack.api;
  */
 public interface UsersOperations {
 
+	public SlackUserStarsResponse getStarsForUser(String userId);
+
+	public UserPresence getUserPresence(String userId);
+	
+	public SlackResponse setUserPresence(String userId , SlackPresence presence);
+
+	public List<SlackUser> getAllUsers();
+
+	public SlackResponse setUserActive(String userId);
 }

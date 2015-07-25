@@ -13,7 +13,17 @@ import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.social.oauth2.AbstractOAuth2ApiBinding;
+import org.springframework.social.slack.api.ChannelOperations;
+import org.springframework.social.slack.api.ChatOperations;
+import org.springframework.social.slack.api.FilesOperations;
+import org.springframework.social.slack.api.GroupOperations;
+import org.springframework.social.slack.api.IMDirectMessageOperations;
+import org.springframework.social.slack.api.MessageOperations;
+import org.springframework.social.slack.api.RTMOperations;
+import org.springframework.social.slack.api.ReactionOperations;
+import org.springframework.social.slack.api.SearchOperations;
 import org.springframework.social.slack.api.Slack;
+import org.springframework.social.slack.api.TeamOperations;
 import org.springframework.social.slack.api.UserProfileOperations;
 import org.springframework.social.slack.api.UsersOperations;
 import org.springframework.social.slack.api.impl.json.SlackModule;
@@ -57,16 +67,6 @@ public class SlackTemplate extends AbstractOAuth2ApiBinding implements Slack {
 		return converter;
 	}
 
-	@Override
-	public UsersOperations usersOperations() {
-		return new UsersTemplate(getRestTemplate());
-	}
-
-	@Override
-	public UserProfileOperations userProfileOperations() {
-		return new UserProfileTemplate(getRestTemplate());
-	}
-
 	private static final class LoggingRequestInterceptor implements ClientHttpRequestInterceptor {
 
 		private static final Log log = LogFactory.getLog(LoggingRequestInterceptor.class);
@@ -106,6 +106,75 @@ public class SlackTemplate extends AbstractOAuth2ApiBinding implements Slack {
 			return execution.execute(protectedResourceRequest, body);
 		}
 
+	}
+
+	@Override
+	public UsersOperations usersOperations() {
+		return new UsersTemplate(getRestTemplate());
+	}
+
+	@Override
+	public UserProfileOperations userProfileOperations() {
+		return new UserProfileTemplate(getRestTemplate());
+	}
+
+	@Override
+	public SearchOperations searchOperations() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ReactionOperations reactionOperations() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public MessageOperations messageOperations() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public GroupOperations rroupOperations() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public FilesOperations filesOperations() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ChatOperations chatOperations() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public ChannelOperations channelOperations() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public IMDirectMessageOperations imOperations() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public RTMOperations rtmOperations() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public TeamOperations teamOperations() {
+		return new TeamTemplate(getRestTemplate());
 	}
 
 }

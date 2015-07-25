@@ -6,7 +6,7 @@ import org.apache.commons.io.IOUtils;
 import org.junit.Test;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.social.slack.api.AbstractSlackApiTest;
-import org.springframework.social.slack.api.SlackUserInfoResponse;
+import org.springframework.social.slack.api.impl.model.SlackUserInfoResponse;
 import org.springframework.util.Assert;
 
 import com.fasterxml.jackson.databind.ObjectMapper;

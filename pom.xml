@@ -234,7 +234,7 @@
 						<include>**/*</include>
 					</includes>
 					<repositoryName>spring-social-slack</repositoryName>      <!-- github repo name -->
-					<repositoryOwner>tanmally</repositoryOwner>    <!-- github username -->
+					<repositoryOwner>bbytes</repositoryOwner>    <!-- github username -->
 				</configuration>
 				<executions>
 					<!-- run site-maven-plugin's 'site' target as part of the build's normal 

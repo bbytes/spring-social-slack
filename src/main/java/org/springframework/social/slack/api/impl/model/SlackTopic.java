@@ -1,5 +1,5 @@
 
-package org.springframework.social.slack.api;
+package org.springframework.social.slack.api.impl.model;
 
 public class SlackTopic {
 

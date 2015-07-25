@@ -1,35 +1,13 @@
-package org.springframework.social.slack.api;
+package org.springframework.social.slack.api.impl.model;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class SlackUserInfoResponse {
-
-	@JsonProperty("ok")
-	private Boolean ok;
+public class SlackUserInfoResponse extends SlackResponse {
 
 	@JsonProperty("user")
 	private SlackUser user;
-
-	/**
-	 *
-	 * @return The ok
-	 */
-	@JsonProperty("ok")
-	public Boolean isOk() {
-		return ok;
-	}
-
-	/**
-	 *
-	 * @param ok
-	 *            The ok
-	 */
-	@JsonProperty("ok")
-	public void setOk(Boolean ok) {
-		this.ok = ok;
-	}
 
 	/**
 	 *

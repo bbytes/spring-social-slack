@@ -21,8 +21,8 @@ import org.springframework.social.connect.ConnectionValues;
 import org.springframework.social.connect.UserProfile;
 import org.springframework.social.connect.UserProfileBuilder;
 import org.springframework.social.slack.api.Slack;
-import org.springframework.social.slack.api.SlackPresence;
-import org.springframework.social.slack.api.SlackUser;
+import org.springframework.social.slack.api.impl.model.SlackPresence;
+import org.springframework.social.slack.api.impl.model.SlackUser;
 
 /**
  * Slack ApiAdapter implementation.

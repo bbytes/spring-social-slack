@@ -2,6 +2,7 @@ package org.springframework.social.slack.api;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.junit.Test;
+import org.springframework.social.slack.api.impl.model.SlackUser;
 import org.springframework.util.Assert;
 
 public class UserProfileTemplateTest extends AbstractSlackApiTest{

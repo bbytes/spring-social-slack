@@ -15,21 +15,19 @@
  */
 package org.springframework.social.slack.api;
 
-import org.springframework.social.slack.api.impl.model.SlackPresence;
-import org.springframework.social.slack.api.impl.model.SlackResponse;
-import org.springframework.social.slack.api.impl.model.SlackUser;
+import java.util.List;
+
+import org.springframework.social.slack.api.impl.model.SlackAccessLogs;
+import org.springframework.social.slack.api.impl.model.SlackTeamInfo;
 
 /**
- * Defines operations for interacting with given slack User
+ * Defines operations for interacting with slack team
  * 
  * @author Thanneer
  */
-public interface UserProfileOperations {
+public interface TeamOperations {
 
-	public SlackUser getUserProfile();
+	public List<SlackAccessLogs> getAccessLogs(Integer count, Integer page);
 
-	public SlackResponse setStatus(SlackPresence status) ;
-
-	public SlackUser getUserProfile(String userId);
-
+	public SlackTeamInfo getTeamInfo();
 }

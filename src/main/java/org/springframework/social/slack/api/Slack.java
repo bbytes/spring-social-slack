@@ -29,6 +29,26 @@ public interface Slack {
 
 	public UserProfileOperations userProfileOperations();
 
-	// public PlaylistsOperations playlistsOperations();
+	public SearchOperations searchOperations();
+	
+	public ReactionOperations reactionOperations();
+	
+	public MessageOperations messageOperations();
+	
+	public GroupOperations rroupOperations();
+	
+	public FilesOperations filesOperations();
+	
+	public ChatOperations chatOperations();
+	
+	public ChannelOperations channelOperations();
+	
+	public IMDirectMessageOperations imOperations();
+	
+	public RTMOperations rtmOperations();
+	
+	public TeamOperations teamOperations();
+	
+	
 
 }

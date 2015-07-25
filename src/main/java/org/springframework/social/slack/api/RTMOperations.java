@@ -15,25 +15,11 @@
  */
 package org.springframework.social.slack.api;
 
-public class SlackResponse {
+/**
+ * Defines operations for interacting with real time messaging
+ * 
+ * @author Thanneer
+ */
+public interface RTMOperations {
 
-	public boolean ok;
-
-	public String message;
-
-	public boolean isOk() {
-		return ok;
-	}
-
-	public void setOk(boolean ok) {
-		this.ok = ok;
-	}
-
-	public String getMessage() {
-		return message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
 }

@@ -8,8 +8,8 @@ import org.springframework.social.slack.api.impl.SlackTemplate;
 import org.springframework.social.test.client.MockRestServiceServer;
 
 public class AbstractSlackApiTest {
-
-	protected static final String APP_ACCESS_TOKEN = "xoxp-3105667121-3107455865-8047331825-961bf";
+			
+	protected static final String APP_ACCESS_TOKEN = "xoxp-3105667121-3107455865-XXXXXXXXXX-XXXXXXX";
 
 	protected SlackTemplate slackTemplate;
 	protected SlackTemplate slack;

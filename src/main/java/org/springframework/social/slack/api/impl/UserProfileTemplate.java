@@ -1,14 +1,13 @@
 package org.springframework.social.slack.api.impl;
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.springframework.social.slack.api.SlackAuthInfo;
-import org.springframework.social.slack.api.SlackPresence;
-import org.springframework.social.slack.api.SlackResponse;
-import org.springframework.social.slack.api.SlackUser;
-import org.springframework.social.slack.api.SlackUserInfoResponse;
 import org.springframework.social.slack.api.UserProfileOperations;
+import org.springframework.social.slack.api.impl.model.SlackAuthInfo;
+import org.springframework.social.slack.api.impl.model.SlackPresence;
+import org.springframework.social.slack.api.impl.model.SlackResponse;
+import org.springframework.social.slack.api.impl.model.SlackUser;
+import org.springframework.social.slack.api.impl.model.SlackUserInfoResponse;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestOperations;

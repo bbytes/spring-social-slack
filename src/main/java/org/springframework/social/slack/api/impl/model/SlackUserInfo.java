@@ -1,4 +1,4 @@
-package org.springframework.social.slack.api;
+package org.springframework.social.slack.api.impl.model;
 
 import java.util.HashMap;
 import java.util.Map;

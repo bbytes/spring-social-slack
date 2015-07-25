@@ -15,6 +15,9 @@
  */
 package org.springframework.social.slack.api;
 
+import org.springframework.social.slack.api.impl.model.SlackChannel;
+import org.springframework.social.slack.api.impl.model.SlackResponse;
+
 /**
 * Defines operations for interacting with a lack User
 * @author Thanneer

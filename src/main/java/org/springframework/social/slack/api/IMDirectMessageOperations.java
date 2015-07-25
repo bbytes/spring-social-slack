@@ -15,21 +15,11 @@
  */
 package org.springframework.social.slack.api;
 
-import org.springframework.social.slack.api.impl.model.SlackPresence;
-import org.springframework.social.slack.api.impl.model.SlackResponse;
-import org.springframework.social.slack.api.impl.model.SlackUser;
-
 /**
- * Defines operations for interacting with given slack User
+ * Defines operations for interacting with slack im
  * 
  * @author Thanneer
  */
-public interface UserProfileOperations {
-
-	public SlackUser getUserProfile();
-
-	public SlackResponse setStatus(SlackPresence status) ;
-
-	public SlackUser getUserProfile(String userId);
+public interface IMDirectMessageOperations {
 
 }
