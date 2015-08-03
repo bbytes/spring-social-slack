@@ -23,4 +23,9 @@ Usage
 			<version>${org.springframework.social.slack.version}</version>
 		</dependency>
 ```
+Note :   
+
+Current version is 1.0.0-SNAPSHOT
+
+Replace ${org.springframework.social.slack.version} with 1.0.0-SNAPSHOT in your maven pom file 
 
