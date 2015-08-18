@@ -29,3 +29,7 @@ Current version is 1.0.0-SNAPSHOT
 
 Replace ${org.springframework.social.slack.version} with 1.0.0-SNAPSHOT in your maven pom file 
 
+#Project status : Work in progress
+
+ToDo: The implemented feature list and pending list to be posted.
+
