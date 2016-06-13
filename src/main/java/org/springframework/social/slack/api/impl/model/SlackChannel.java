@@ -4,6 +4,8 @@ package org.springframework.social.slack.api.impl.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 
 public class SlackChannel {
 
@@ -292,6 +294,11 @@ public class SlackChannel {
     public void setPurpose(Purpose purpose) {
         this.purpose = purpose;
     }
+    
+	@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this);
+	}
 
 
 }

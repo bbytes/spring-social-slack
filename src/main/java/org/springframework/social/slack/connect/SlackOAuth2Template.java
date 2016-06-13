@@ -31,9 +31,6 @@ public class SlackOAuth2Template extends OAuth2Template {
 
 	private String redirectUri;
 	
-	public SlackOAuth2Template(String clientId, String clientSecret) {
-		this(clientId, clientSecret, null);
-	}
 
 	public SlackOAuth2Template(String clientId, String clientSecret,String redirectUri) {
 		super(clientId, clientSecret, "https://slack.com/oauth/authorize", "https://slack.com/api/oauth.access");

@@ -5,14 +5,14 @@
 	<groupId>org.springframework.social</groupId>
 	<artifactId>spring-social-slack</artifactId>
 	<packaging>jar</packaging>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<name>Spring Social Slack</name>
 
 	<properties>
 		<java.version>1.7</java.version>
-		<org.springframework.version>4.0.2.RELEASE</org.springframework.version>
+		<org.springframework.version>4.3.0.RELEASE</org.springframework.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<org.springframework.social.version>1.1.0.RELEASE</org.springframework.social.version>
+		<org.springframework.social.version>1.1.4.RELEASE</org.springframework.social.version>
 		<org.springframework.social-test.version>1.0.3.RELEASE</org.springframework.social-test.version>
 		<jackson2.version>2.2.2</jackson2.version>
 		<github.global.server>github</github.global.server>
@@ -230,6 +230,7 @@
 					<noJekyll>true</noJekyll>                                  <!-- disable webpage processing -->
 					<outputDirectory>${project.build.directory}/mvn-repo</outputDirectory> <!-- matches distribution management repository url above -->
 					<branch>refs/heads/mvn-repo</branch>                       <!-- remote branch name -->
+					<server>github</server>
 					<includes>
 						<include>**/*</include>
 					</includes>
