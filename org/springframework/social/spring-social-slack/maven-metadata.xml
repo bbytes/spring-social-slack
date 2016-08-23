@@ -4,9 +4,8 @@
   <artifactId>spring-social-slack</artifactId>
   <versioning>
     <versions>
-      <version>1.0.0-SNAPSHOT</version>
       <version>1.0.1-SNAPSHOT</version>
     </versions>
-    <lastUpdated>20160613084151</lastUpdated>
+    <lastUpdated>20160823134717</lastUpdated>
   </versioning>
 </metadata>
