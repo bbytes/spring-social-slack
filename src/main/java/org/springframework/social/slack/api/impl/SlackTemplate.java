@@ -150,8 +150,7 @@ public class SlackTemplate extends AbstractOAuth2ApiBinding implements Slack {
 
 	@Override
 	public ChatOperations chatOperations() {
-		// TODO Auto-generated method stub
-		return null;
+		return new ChatTemplate(getRestTemplate());
 	}
 
 	@Override

@@ -17,8 +17,6 @@ package org.springframework.social.slack.api.impl;
 
 import java.util.List;
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
-import org.apache.commons.lang3.builder.ToStringStyle;
 import org.springframework.social.slack.api.TeamOperations;
 import org.springframework.social.slack.api.impl.model.SlackAccessLogResponse;
 import org.springframework.social.slack.api.impl.model.SlackAccessLogs;

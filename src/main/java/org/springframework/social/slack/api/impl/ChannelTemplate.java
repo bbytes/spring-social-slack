@@ -39,14 +39,26 @@ public class ChannelTemplate extends AbstractTemplate implements ChannelOperatio
 
 	@Override
 	public SlackResponse archiveChannel(String channelId) {
-		// TODO Auto-generated method stub
-		return null;
+		MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
+		map.add("channel",channelId);
+		SlackResponse slackResponse = get("/channels.archive", map, SlackResponse.class);
+		return slackResponse;
+	}
+	
+	@Override
+	public SlackResponse unarchiveChannel(String channelId) {
+		MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
+		map.add("channel",channelId);
+		SlackResponse slackResponse = get("/channels.unarchive", map, SlackResponse.class);
+		return slackResponse;
 	}
 
 	@Override
 	public SlackChannel createChannel(String channelName) {
-		// TODO Auto-generated method stub
-		return null;
+		MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
+		map.add("name",channelName);
+		SlackChannelResponse slackChannelResponse = get("/channels.create", map, SlackChannelResponse.class);
+		return slackChannelResponse.getChannel();
 	}
 
 
