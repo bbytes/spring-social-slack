@@ -144,8 +144,7 @@ public class SlackTemplate extends AbstractOAuth2ApiBinding implements Slack {
 
 	@Override
 	public FilesOperations filesOperations() {
-		// TODO Auto-generated method stub
-		return null;
+		return new FileTemplate(getRestTemplate());
 	}
 
 	@Override
@@ -173,6 +172,11 @@ public class SlackTemplate extends AbstractOAuth2ApiBinding implements Slack {
 	@Override
 	public TeamOperations teamOperations() {
 		return new TeamTemplate(getRestTemplate());
+	}
+
+	@Override
+	public GroupOperations groupOperations() {
+		return new GroupTemplate(getRestTemplate());
 	}
 
 }

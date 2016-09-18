@@ -15,9 +15,9 @@
  */
 package org.springframework.social.slack.api;
 
-import org.springframework.social.slack.api.impl.model.SlackFile;
 import org.springframework.social.slack.api.impl.model.SlackFileInfo;
-import org.springframework.social.slack.api.impl.model.SlackFileList;
+import org.springframework.social.slack.api.impl.model.SlackFileListResponse;
+import org.springframework.social.slack.api.impl.model.SlackFileResponse;
 import org.springframework.social.slack.api.impl.model.SlackResponse;
 
 /**
@@ -35,21 +35,21 @@ public interface FilesOperations {
 
 	public SlackFileInfo getFileInfo(String fileId, int page, int count);
 
-	public SlackFileList getFileList();
+	public SlackFileListResponse getFileList();
 
-	public SlackFileList getFileList(int page);
+	public SlackFileListResponse getFileList(int page);
 
-	public SlackFileList getFileList(int page, int count);
+	public SlackFileListResponse getFileList(int page, int count);
 
-	public SlackFileList getFileList(String user);
+	public SlackFileListResponse getFileList(String user);
 
-	public SlackFileList getFileList(String user, int page);
+	public SlackFileListResponse getFileList(String user, int page);
 
-	public SlackFileList getFileList(String user, int page, int count);
+	public SlackFileListResponse getFileList(String user, int page, int count);
 
-	public SlackFileList getFileList(String user, String ts_from, String ts_to, String types, int page, int count);
+	public SlackFileListResponse getFileList(String user, String ts_from, String ts_to, String types, int page, int count);
 
-	public SlackFile revokeFilePublicURL(String fileId);
+	public SlackFileResponse revokeFilePublicURL(String fileId);
 
 	/**
 	 * Look for permalink_public field value in response for public url of the
@@ -58,7 +58,7 @@ public interface FilesOperations {
 	 * @param fileId
 	 * @return
 	 */
-	public SlackFile sharedFilePublicURL(String fileId);
+	public SlackFileResponse sharedFilePublicURL(String fileId);
 
 	/**
 	 * 
@@ -73,7 +73,15 @@ public interface FilesOperations {
 	 *            will be shared.
 	 * @return
 	 */
-	public SlackFile uploadFile(java.io.File file, String title, String initialComment, String channels)
+	public SlackFileResponse uploadFile(java.io.File file, String title, String initialComment, String channels)
 			throws Exception;
+
+	public SlackFileResponse uploadFile(java.io.File file, String title, String fileType, String initialComment,
+			String channels) throws Exception;
+
+	public SlackFileResponse uploadFile(java.io.File file, String title, String channels) throws Exception;
+
+
+	public SlackFileResponse uploadFile(java.io.File file, String title) throws Exception;
 
 }

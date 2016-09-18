@@ -1,0 +1,112 @@
+{
+    "ok": true,
+    "items": [
+        {
+            "type": "file",
+            "file": {
+                "id": "F085K1BS4",
+                "created": 1437787829,
+                "timestamp": 1437787829,
+                "name": "ftc-prev-day_v3b.sql",
+                "title": "test",
+                "mimetype": "text\/plain",
+                "filetype": "sql",
+                "pretty_type": "SQL",
+                "user": "U0335DDRF",
+                "editable": true,
+                "size": 27999,
+                "mode": "snippet",
+                "is_external": false,
+                "external_type": "",
+                "is_public": false,
+                "public_url_shared": false,
+                "display_as_bot": false,
+                "username": "",
+                "url": "https:\/\/slack-files.com\/files-pub\/T0333KM3K-F085K1BS4-16438a6b78\/ftc-prev-day_v3b.sql",
+                "url_download": "https:\/\/slack-files.com\/files-pub\/T0333KM3K-F085K1BS4-16438a6b78\/download\/ftc-prev-day_v3b.sql",
+                "url_private": "https:\/\/files.slack.com\/files-pri\/T0333KM3K-F085K1BS4\/ftc-prev-day_v3b.sql",
+                "url_private_download": "https:\/\/files.slack.com\/files-pri\/T0333KM3K-F085K1BS4\/download\/ftc-prev-day_v3b.sql",
+                "permalink": "https:\/\/beyondbytes.slack.com\/files\/tm\/F085K1BS4\/ftc-prev-day_v3b.sql",
+                "permalink_public": "https:\/\/slack-files.com\/T0333KM3K-F085K1BS4-16438a6b78",
+                "edit_link": "https:\/\/beyondbytes.slack.com\/files\/tm\/F085K1BS4\/ftc-prev-day_v3b.sql\/edit",
+                "preview": "\/*-- INSTALL THESE\n\nCREATE NONCLUSTERED INDEX IX_tblStationData_ComponentPlus\nON [dbo].[tbl_station_data] ([component_id])\nINCLUDE ([id],[date_timestamp],[station_id],[zone_id],[theHour])\n\nCREATE NONCLUSTERED INDEX IX_tblActivityData_DTS_FailStn\nON [dbo].[tbl_activity_data] ([date_timestamp])\nINCLUDE ([is_failure],[station_data_id])\n",
+                "preview_highlight": "<div class=\"sssh-code\"><div class=\"sssh-line\"><pre><span class=\"coMULTI\">\/*-- INSTALL THESE<\/pre><\/div>\n<div class=\"sssh-line\"><pre><\/pre><\/div>\n<div class=\"sssh-line\"><pre>CREATE NONCLUSTERED INDEX IX_tblStationData_ComponentPlus<\/pre><\/div>\n<div class=\"sssh-line\"><pre>ON [dbo].[tbl_station_data] ([component_id])<\/pre><\/div>\n<div class=\"sssh-line\"><pre>INCLUDE ([id],[date_timestamp],[station_id],[zone_id],[theHour])<\/pre><\/div>\n<div class=\"sssh-line\"><pre><\/pre><\/div>\n<div class=\"sssh-line\"><pre>CREATE NONCLUSTERED INDEX IX_tblActivityData_DTS_FailStn<\/pre><\/div>\n<div class=\"sssh-line\"><pre>ON [dbo].[tbl_activity_data] ([date_timestamp])<\/pre><\/div>\n<div class=\"sssh-line\"><pre>INCLUDE ([is_failure],[station_data_id])<\/pre><\/div>\n<div class=\"sssh-line\"><pre><\/pre><\/div>\n<div class=\"sssh-line\"><pre><\/span><\/pre><\/div>\n<\/div>",
+                "lines": 280,
+                "lines_more": 270,
+                "channels": [],
+                "groups": [],
+                "ims": [
+                    "D07RYM25V"
+                ],
+                "comments_count": 1,
+                "initial_comment": {
+                    "id": "Fc085K5YMR",
+                    "created": 1437787829,
+                    "timestamp": 1437787829,
+                    "user": "U0335DDRF",
+                    "comment": "test file"
+                },
+                "num_stars": 1,
+                "is_starred": true
+            }
+        },
+        {
+            "type": "channel",
+            "channel": "C080DKSLT"
+        },
+        {
+            "type": "message",
+            "channel": "D07RYM25V",
+            "message": {
+                "type": "message",
+                "user": "U0335DDRF",
+                "text": "cool",
+                "ts": "1437781596.000002",
+                "permalink": "https:\/\/beyondbytes.slack.com\/archives\/D07RYM25V\/p1437781596000002",
+                "is_starred": true
+            }
+        },
+        {
+            "type": "message",
+            "channel": "D07RYM25V",
+            "message": {
+                "type": "message",
+                "user": "U0335DDRF",
+                "text": "schedule meeting",
+                "ts": "1437282818.000002",
+                "permalink": "https:\/\/beyondbytes.slack.com\/archives\/D07RYM25V\/p1437282818000002",
+                "is_starred": true
+            }
+        },
+        {
+            "type": "message",
+            "channel": "D07RYM25V",
+            "message": {
+                "type": "message",
+                "user": "U0335DDRF",
+                "text": "?",
+                "ts": "1437343239.000004",
+                "permalink": "https:\/\/beyondbytes.slack.com\/archives\/D07RYM25V\/p1437343239000004",
+                "is_starred": true
+            }
+        },
+        {
+            "type": "message",
+            "channel": "D07RYM25V",
+            "message": {
+                "type": "message",
+                "user": "U0335DDRF",
+                "text": "Build for job 'Reveal-APP-v5-AJS_Branch' initiated successfully",
+                "ts": "1437393700.000002",
+                "permalink": "https:\/\/beyondbytes.slack.com\/archives\/D07RYM25V\/p1437393700000002",
+                "is_starred": true
+            }
+        }
+    ],
+    "paging": {
+        "count": 20,
+        "total": 6,
+        "page": 1,
+        "pages": 1
+    }
+}

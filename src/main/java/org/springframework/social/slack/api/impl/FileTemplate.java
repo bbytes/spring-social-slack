@@ -1,18 +1,18 @@
 package org.springframework.social.slack.api.impl;
 
 import java.io.File;
-import java.io.IOException;
 import java.nio.file.Files;
 
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.core.io.ByteArrayResource;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.social.slack.api.FilesOperations;
-import org.springframework.social.slack.api.impl.model.SlackFile;
 import org.springframework.social.slack.api.impl.model.SlackFileInfo;
-import org.springframework.social.slack.api.impl.model.SlackFileList;
+import org.springframework.social.slack.api.impl.model.SlackFileListResponse;
+import org.springframework.social.slack.api.impl.model.SlackFileResponse;
 import org.springframework.social.slack.api.impl.model.SlackResponse;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
@@ -60,59 +60,60 @@ public class FileTemplate extends AbstractTemplate implements FilesOperations {
 	}
 
 	@Override
-	public SlackFileList getFileList() {
-		SlackFileList slackFileInfo = get("/files.list", SlackFileList.class);
-		return slackFileInfo;
+	public SlackFileListResponse getFileList() {
+		SlackFileListResponse slackFileListResponse = get("/files.list", SlackFileListResponse.class);
+		return slackFileListResponse;
 	}
 
 	@Override
-	public SlackFileList getFileList(int page) {
+	public SlackFileListResponse getFileList(int page) {
 		MultiValueMap<String, String> paramMap = new LinkedMultiValueMap<String, String>();
 		paramMap.add("page", new Integer(page).toString());
-		SlackFileList slackFileList = get("/files.list", SlackFileList.class);
-		return slackFileList;
+		SlackFileListResponse slackFileListResponse = get("/files.list", SlackFileListResponse.class);
+		return slackFileListResponse;
 	}
 
 	@Override
-	public SlackFileList getFileList(int page, int count) {
+	public SlackFileListResponse getFileList(int page, int count) {
 		MultiValueMap<String, String> paramMap = new LinkedMultiValueMap<String, String>();
-		paramMap.add("page", new Integer(page).toString());
-		paramMap.add("count", new Integer(count).toString());
-		SlackFileList slackFileList = get("/files.list", SlackFileList.class);
-		return slackFileList;
-	}
-
-	@Override
-	public SlackFileList getFileList(String userId) {
-		MultiValueMap<String, String> paramMap = new LinkedMultiValueMap<String, String>();
-		paramMap.add("user", userId);
-		SlackFileList slackFileList = get("/files.list", SlackFileList.class);
-		return slackFileList;
-	}
-
-	@Override
-	public SlackFileList getFileList(String userId, int page) {
-		MultiValueMap<String, String> paramMap = new LinkedMultiValueMap<String, String>();
-		paramMap.add("user", userId);
-		paramMap.add("page", new Integer(page).toString());
-
-		SlackFileList slackFileList = get("/files.list", SlackFileList.class);
-		return slackFileList;
-	}
-
-	@Override
-	public SlackFileList getFileList(String userId, int page, int count) {
-		MultiValueMap<String, String> paramMap = new LinkedMultiValueMap<String, String>();
-		paramMap.add("user", userId);
 		paramMap.add("page", new Integer(page).toString());
 		paramMap.add("count", new Integer(count).toString());
-
-		SlackFileList slackFileList = get("/files.list", SlackFileList.class);
-		return slackFileList;
+		SlackFileListResponse slackFileListResponse = get("/files.list", SlackFileListResponse.class);
+		return slackFileListResponse;
 	}
 
 	@Override
-	public SlackFileList getFileList(String userId, String ts_from, String ts_to, String types, int page, int count) {
+	public SlackFileListResponse getFileList(String userId) {
+		MultiValueMap<String, String> paramMap = new LinkedMultiValueMap<String, String>();
+		paramMap.add("user", userId);
+		SlackFileListResponse slackFileListResponse = get("/files.list", SlackFileListResponse.class);
+		return slackFileListResponse;
+	}
+
+	@Override
+	public SlackFileListResponse getFileList(String userId, int page) {
+		MultiValueMap<String, String> paramMap = new LinkedMultiValueMap<String, String>();
+		paramMap.add("user", userId);
+		paramMap.add("page", new Integer(page).toString());
+
+		SlackFileListResponse slackFileListResponse = get("/files.list", SlackFileListResponse.class);
+		return slackFileListResponse;
+	}
+
+	@Override
+	public SlackFileListResponse getFileList(String userId, int page, int count) {
+		MultiValueMap<String, String> paramMap = new LinkedMultiValueMap<String, String>();
+		paramMap.add("user", userId);
+		paramMap.add("page", new Integer(page).toString());
+		paramMap.add("count", new Integer(count).toString());
+
+		SlackFileListResponse slackFileListResponse = get("/files.list", SlackFileListResponse.class);
+		return slackFileListResponse;
+	}
+
+	@Override
+	public SlackFileListResponse getFileList(String userId, String ts_from, String ts_to, String types, int page,
+			int count) {
 		MultiValueMap<String, String> paramMap = new LinkedMultiValueMap<String, String>();
 		paramMap.add("user", userId);
 		paramMap.add("page", new Integer(page).toString());
@@ -121,44 +122,83 @@ public class FileTemplate extends AbstractTemplate implements FilesOperations {
 		paramMap.add("ts_to", ts_to);
 		paramMap.add("types", types);
 
-		SlackFileList slackFileList = get("/files.list", SlackFileList.class);
-		return slackFileList;
+		SlackFileListResponse slackFileListResponse = get("/files.list", SlackFileListResponse.class);
+		return slackFileListResponse;
 	}
 
 	@Override
-	public SlackFile revokeFilePublicURL(String fileId) {
+	public SlackFileResponse revokeFilePublicURL(String fileId) {
 		MultiValueMap<String, String> paramMap = new LinkedMultiValueMap<String, String>();
 		paramMap.add("file", fileId);
 
-		SlackFile slackFile = get("/files.revokePublicURL", SlackFile.class);
-		return slackFile;
+		SlackFileResponse slackFileResponse = get("/files.revokePublicURL", SlackFileResponse.class);
+		return slackFileResponse;
 	}
 
 	@Override
-	public SlackFile sharedFilePublicURL(String fileId) {
+	public SlackFileResponse sharedFilePublicURL(String fileId) {
 		MultiValueMap<String, String> paramMap = new LinkedMultiValueMap<String, String>();
 		paramMap.add("file", fileId);
 
-		SlackFile slackFile = get("/files.sharedPublicURL", SlackFile.class);
-		return slackFile;
+		SlackFileResponse slackFileResponse = get("/files.sharedPublicURL", SlackFileResponse.class);
+		return slackFileResponse;
 	}
 
 	@Override
-	public SlackFile uploadFile(File file, String title, String initialComment, String channels) throws Exception {
+	public SlackFileResponse uploadFile(File file, String title, String initialComment, String channels)
+			throws Exception {
 		LinkedMultiValueMap<String, Object> map = new LinkedMultiValueMap<>();
 		map.add("file", new ByteArrayResource(Files.readAllBytes(file.toPath())));
 		map.add("title", title);
 		map.add("filetype", FilenameUtils.getExtension(file.getName()));
 		map.add("initialComment", initialComment);
 		map.add("channels", channels);
-		
+
+		return uploadFileViaPost(map);
+
+	}
+
+	@Override
+	public SlackFileResponse uploadFile(File file, String title, String fileType, String initialComment,
+			String channels) throws Exception {
+		LinkedMultiValueMap<String, Object> map = new LinkedMultiValueMap<>();
+		map.add("file", new ByteArrayResource(Files.readAllBytes(file.toPath())));
+		map.add("title", title);
+		map.add("filetype", fileType);
+		map.add("initialComment", initialComment);
+		map.add("channels", channels);
+
+		return uploadFileViaPost(map);
+	}
+
+	@Override
+	public SlackFileResponse uploadFile(File file, String title, String channels) throws Exception {
+		LinkedMultiValueMap<String, Object> map = new LinkedMultiValueMap<>();
+		map.add("file", new ByteArrayResource(Files.readAllBytes(file.toPath())));
+		map.add("title", title);
+		map.add("filetype", FilenameUtils.getExtension(file.getName()));
+		map.add("channels", channels);
+
+		return uploadFileViaPost(map);
+	}
+
+	@Override
+	public SlackFileResponse uploadFile(File file, String title) throws Exception {
+		LinkedMultiValueMap<String, Object> map = new LinkedMultiValueMap<>();
+		map.add("file", new FileSystemResource(file));
+		map.add("title", title);
+		map.add("filetype", FilenameUtils.getExtension(file.getName()));
+
+		return uploadFileViaPost(map);
+	}
+
+	private SlackFileResponse uploadFileViaPost(LinkedMultiValueMap<String, Object> map) {
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.MULTIPART_FORM_DATA);
 		HttpEntity<LinkedMultiValueMap<String, Object>> requestEntity = new HttpEntity<LinkedMultiValueMap<String, Object>>(
 				map, headers);
-		SlackFile slackFile = post("/files.upload", requestEntity, SlackFile.class);
-		return slackFile;
-
+		SlackFileResponse slackFileResponse = post("/files.upload", requestEntity, SlackFileResponse.class);
+		return slackFileResponse;
 	}
 
 }

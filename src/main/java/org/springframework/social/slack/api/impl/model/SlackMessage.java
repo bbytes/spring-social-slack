@@ -20,6 +20,8 @@ public class SlackMessage implements Serializable{
 	private String text;
 	@JsonProperty("bot_id")
 	private String botId;
+	@JsonProperty("subtype")
+	private String subtype;
 	@JsonProperty("ts")
 	private String ts;
 	
@@ -64,6 +66,14 @@ public class SlackMessage implements Serializable{
 	}
 
 
+
+	public String getSubtype() {
+		return subtype;
+	}
+
+	public void setSubtype(String subtype) {
+		this.subtype = subtype;
+	}
 
 	@Override
 	public String toString() {
