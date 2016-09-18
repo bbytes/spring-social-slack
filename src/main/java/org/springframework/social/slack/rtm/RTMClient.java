@@ -110,6 +110,21 @@ public class RTMClient {
 
 	}
 
+	public void sendMessage(String id, String message, String channelId) throws IOException {
+		if (id == null)
+			id = UUID.randomUUID().toString();
+
+		ObjectNode messageNode = mapper.createObjectNode();
+		messageNode.put("id", id);
+		messageNode.put("type", SlackEvent.message.toString());
+		messageNode.put("text", message);
+		messageNode.put("channel", channelId);
+		String messageJson = messageNode.toString();
+
+		if (this.userSession != null && this.userSession.isOpen())
+			this.userSession.getAsyncRemote().sendText(messageJson);
+	}
+
 	/**
 	 * Send message to given channel id
 	 * 
@@ -118,15 +133,7 @@ public class RTMClient {
 	 * @throws IOException
 	 */
 	public void sendMessage(String message, String channelId) throws IOException {
-		ObjectNode messageNode = mapper.createObjectNode();
-		messageNode.put("id", UUID.randomUUID().toString());
-		messageNode.put("type", SlackEvent.message.toString());
-		messageNode.put("text", message);
-		messageNode.put("channel", channelId);
-		String messageJson = messageNode.toString();
-
-		if (this.userSession != null && this.userSession.isOpen())
-			this.userSession.getAsyncRemote().sendText(messageJson);
+		sendMessage(null, message, channelId);
 	}
 
 	/**
