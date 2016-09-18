@@ -38,21 +38,17 @@ public class RTMTemplate extends AbstractTemplate implements RTMOperations {
 	@Override
 	public RTMClient getRTMClient(SlackRTMResponse slackRTMResponse, ProxyServer proxyServer) throws Exception {
 		return new RTMClient(new URI(slackRTMResponse.getWebSocketURL()));
-	       
-//		return new SlackRealTimeMessagingClient(slackRTMResponse.getWebSocketURL(), proxyServer, null);
 	}
 
 	@Override
 	public RTMClient getRTMClient(SlackRTMResponse slackRTMResponse) throws Exception {
 		return new RTMClient(new URI(slackRTMResponse.getWebSocketURL()));
-//		return new SlackRealTimeMessagingClient(slackRTMResponse.getWebSocketURL(),null);
 	}
 
 	@Override
 	public RTMClient getRTMClient(SlackRTMResponse slackRTMResponse, ProxyServer proxyServer,
 			ObjectMapper objectMapper) throws Exception {
 		return new RTMClient(new URI(slackRTMResponse.getWebSocketURL()));
-//		return new SlackRealTimeMessagingClient(slackRTMResponse.getWebSocketURL(),objectMapper);
 	}
 
 }
