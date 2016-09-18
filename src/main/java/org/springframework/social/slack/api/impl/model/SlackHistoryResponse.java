@@ -5,7 +5,7 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class SlackGroupHistoryResponse extends SlackResponse {
+public class SlackHistoryResponse extends SlackResponse {
 
 	@JsonProperty("messages")
 	private List<SlackMessage> messages = new ArrayList<SlackMessage>();

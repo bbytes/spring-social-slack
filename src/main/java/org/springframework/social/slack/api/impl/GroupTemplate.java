@@ -1,7 +1,7 @@
 package org.springframework.social.slack.api.impl;
 
 import org.springframework.social.slack.api.GroupOperations;
-import org.springframework.social.slack.api.impl.model.SlackGroupHistoryResponse;
+import org.springframework.social.slack.api.impl.model.SlackHistoryResponse;
 import org.springframework.social.slack.api.impl.model.SlackGroupListResponse;
 import org.springframework.social.slack.api.impl.model.SlackGroupResponse;
 import org.springframework.social.slack.api.impl.model.SlackResponse;
@@ -149,24 +149,24 @@ public class GroupTemplate extends AbstractTemplate implements GroupOperations {
 	}
 
 	@Override
-	public SlackGroupHistoryResponse getGroupHistory(String channel) {
+	public SlackHistoryResponse getGroupHistory(String channel) {
 		MultiValueMap<String, String> paramMap = new LinkedMultiValueMap<String, String>();
 		paramMap.add("channel", channel);
-		SlackGroupHistoryResponse groupHistory = get("/groups.history", paramMap, SlackGroupHistoryResponse.class);
+		SlackHistoryResponse groupHistory = get("/groups.history", paramMap, SlackHistoryResponse.class);
 		return groupHistory;
 	}
 
 	@Override
-	public SlackGroupHistoryResponse getGroupHistory(String channel, int count) {
+	public SlackHistoryResponse getGroupHistory(String channel, int count) {
 		MultiValueMap<String, String> paramMap = new LinkedMultiValueMap<String, String>();
 		paramMap.add("channel", channel);
 		paramMap.add("count", new Integer(count).toString());
-		SlackGroupHistoryResponse groupHistory = get("/groups.history", paramMap, SlackGroupHistoryResponse.class);
+		SlackHistoryResponse groupHistory = get("/groups.history", paramMap, SlackHistoryResponse.class);
 		return groupHistory;
 	}
 
 	@Override
-	public SlackGroupHistoryResponse getGroupHistory(String channel, String latest, String oldest, boolean inclusive, int count,
+	public SlackHistoryResponse getGroupHistory(String channel, String latest, String oldest, boolean inclusive, int count,
 			boolean unreads) {
 		MultiValueMap<String, String> paramMap = new LinkedMultiValueMap<String, String>();
 		paramMap.add("channel", channel);
@@ -176,7 +176,7 @@ public class GroupTemplate extends AbstractTemplate implements GroupOperations {
 		paramMap.add("unreads", DataUtil.getStringValue(unreads));
 		
 		paramMap.add("count", new Integer(count).toString());
-		SlackGroupHistoryResponse groupHistory = get("/groups.history", paramMap, SlackGroupHistoryResponse.class);
+		SlackHistoryResponse groupHistory = get("/groups.history", paramMap, SlackHistoryResponse.class);
 		return groupHistory;
 	}
 

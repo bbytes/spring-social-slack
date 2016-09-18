@@ -15,6 +15,12 @@
  */
 package org.springframework.social.slack.api;
 
+import org.springframework.social.slack.api.impl.model.SlackRTMResponse;
+import org.springframework.social.slack.rtm.ProxyServer;
+import org.springframework.social.slack.rtm.RTMClient;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 /**
  * Defines operations for interacting with real time messaging
  * 
@@ -22,4 +28,38 @@ package org.springframework.social.slack.api;
  */
 public interface RTMOperations {
 
+	public SlackRTMResponse startRealTimeMessagingApi();
+
+	public SlackRTMResponse startRealTimeMessagingApi(String simple_latest, String no_unreads, String mpim_aware);
+
+	/**
+	 * Get Slack Real Time Messaging Client to do rtm messaging
+	 * 
+	 * @param slackRTMResponse
+	 * @return
+	 */
+	public RTMClient getRTMClient(SlackRTMResponse slackRTMResponse) throws Exception;
+
+	/**
+	 * Get Slack Real Time Messaging Client to do rtm messaging
+	 * 
+	 * @param slackRTMResponse
+	 * @param proxyServer
+	 *            can be null
+	 * @return
+	 */
+	public RTMClient getRTMClient(SlackRTMResponse slackRTMResponse, ProxyServer proxyServer) throws Exception;
+
+	/**
+	 * Get Slack Real Time Messaging Client to do rtm messaging
+	 * 
+	 * @param slackRTMResponse
+	 * @param proxyServer
+	 *            can be null
+	 * @param objectMapper
+	 *            can be null
+	 * @return
+	 */
+	public RTMClient getRTMClient(SlackRTMResponse slackRTMResponse, ProxyServer proxyServer, ObjectMapper objectMapper)
+			throws Exception;
 }

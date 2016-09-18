@@ -5,7 +5,7 @@ import java.util.UUID;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.junit.Test;
-import org.springframework.social.slack.api.impl.model.SlackGroupHistoryResponse;
+import org.springframework.social.slack.api.impl.model.SlackHistoryResponse;
 import org.springframework.social.slack.api.impl.model.SlackGroupResponse;
 import org.springframework.social.slack.api.impl.model.SlackResponse;
 import org.springframework.util.Assert;
@@ -46,7 +46,7 @@ public class GroupTemplateTest extends AbstractSlackApiTest {
 		String groupName = UUID.randomUUID().toString();
 		SlackGroupResponse slackGroupResponse = getSlackTemplate().groupOperations().createGroup(groupName);
 
-		SlackGroupHistoryResponse history = getSlackTemplate().groupOperations()
+		SlackHistoryResponse history = getSlackTemplate().groupOperations()
 				.getGroupHistory(slackGroupResponse.getGroup().getId());
 		System.out.println(ToStringBuilder.reflectionToString(history, ToStringStyle.MULTI_LINE_STYLE));
 

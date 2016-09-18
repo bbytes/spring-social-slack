@@ -31,6 +31,8 @@ import org.springframework.social.slack.api.Slack;
  */
 public class SlackApiHelper implements ApiHelper<Slack> {
 
+	private final static Log logger = LogFactory.getLog(SlackApiHelper.class);
+	
 	private final UsersConnectionRepository usersConnectionRepository;
 
 	private final UserIdSource userIdSource;
@@ -53,6 +55,6 @@ public class SlackApiHelper implements ApiHelper<Slack> {
 		return connection != null ? connection.getApi() : null;
 	}
 
-	private final static Log logger = LogFactory.getLog(SlackApiHelper.class);
+	
 
 }

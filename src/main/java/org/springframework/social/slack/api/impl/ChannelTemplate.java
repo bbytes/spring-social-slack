@@ -19,7 +19,7 @@ import java.util.List;
 
 import org.springframework.social.slack.api.ChannelOperations;
 import org.springframework.social.slack.api.impl.model.SlackChannel;
-import org.springframework.social.slack.api.impl.model.SlackChannelAllResponse;
+import org.springframework.social.slack.api.impl.model.SlackChannelListResponse;
 import org.springframework.social.slack.api.impl.model.SlackChannelResponse;
 import org.springframework.social.slack.api.impl.model.SlackResponse;
 import org.springframework.util.LinkedMultiValueMap;
@@ -75,7 +75,7 @@ public class ChannelTemplate extends AbstractTemplate implements ChannelOperatio
 	 */
 	@Override
 	public List<SlackChannel> getAllChannels() {
-		SlackChannelAllResponse channelAllResponse = get("/channels.list", SlackChannelAllResponse.class);
+		SlackChannelListResponse channelAllResponse = get("/channels.list", SlackChannelListResponse.class);
 		return channelAllResponse.getChannelList();
 	}
 

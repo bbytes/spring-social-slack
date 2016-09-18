@@ -43,7 +43,7 @@ public interface Slack {
 
 	public ChannelOperations channelOperations();
 
-	public IMDirectMessageOperations imOperations();
+	public IMDirectMessageOperations imDirectMessageOperations();
 
 	public RTMOperations rtmOperations();
 

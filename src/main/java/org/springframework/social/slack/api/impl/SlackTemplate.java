@@ -161,15 +161,13 @@ public class SlackTemplate extends AbstractOAuth2ApiBinding implements Slack {
 	}
 
 	@Override
-	public IMDirectMessageOperations imOperations() {
-		// TODO Auto-generated method stub
-		return null;
+	public IMDirectMessageOperations imDirectMessageOperations() {
+		return new IMDirectMessageTemplate(getRestTemplate());
 	}
 
 	@Override
 	public RTMOperations rtmOperations() {
-		// TODO Auto-generated method stub
-		return null;
+		return new RTMTemplate(getRestTemplate());
 	}
 
 	@Override

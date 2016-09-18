@@ -17,7 +17,7 @@ package org.springframework.social.slack.api;
 
 
 
-import org.springframework.social.slack.api.impl.model.SlackGroupHistoryResponse;
+import org.springframework.social.slack.api.impl.model.SlackHistoryResponse;
 import org.springframework.social.slack.api.impl.model.SlackGroupListResponse;
 import org.springframework.social.slack.api.impl.model.SlackGroupResponse;
 import org.springframework.social.slack.api.impl.model.SlackResponse;
@@ -61,11 +61,11 @@ public interface GroupOperations {
 	
 	public SlackResponse kickUserFormGroup(String channel, String user);
 	
-	public SlackGroupHistoryResponse getGroupHistory(String channel);
+	public SlackHistoryResponse getGroupHistory(String channel);
 	
-	public SlackGroupHistoryResponse getGroupHistory(String channel, int count) ;
+	public SlackHistoryResponse getGroupHistory(String channel, int count) ;
 	
-	public SlackGroupHistoryResponse getGroupHistory(String channel, String latest, String oldest, boolean inclusive, int count, boolean unreads) ;
+	public SlackHistoryResponse getGroupHistory(String channel, String latest, String oldest, boolean inclusive, int count, boolean unreads) ;
 	
 	
 }

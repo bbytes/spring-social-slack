@@ -6,7 +6,7 @@ import org.springframework.social.slack.api.UsersOperations;
 import org.springframework.social.slack.api.impl.model.SlackPresence;
 import org.springframework.social.slack.api.impl.model.SlackResponse;
 import org.springframework.social.slack.api.impl.model.SlackUser;
-import org.springframework.social.slack.api.impl.model.SlackUserAllResponse;
+import org.springframework.social.slack.api.impl.model.SlackUserListResponse;
 import org.springframework.social.slack.api.impl.model.SlackUserStarsResponse;
 import org.springframework.social.slack.api.impl.model.UserPresence;
 import org.springframework.util.LinkedMultiValueMap;
@@ -43,7 +43,7 @@ public class UsersTemplate extends AbstractTemplate implements UsersOperations {
 
 	@Override
 	public List<SlackUser> getAllUsers() {
-		SlackUserAllResponse slackUserAllResponse = get("/users.list", SlackUserAllResponse.class);
+		SlackUserListResponse slackUserAllResponse = get("/users.list", SlackUserListResponse.class);
 		return slackUserAllResponse.getUserList();
 	}
 

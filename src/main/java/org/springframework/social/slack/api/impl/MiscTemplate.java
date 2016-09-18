@@ -6,7 +6,6 @@ import java.util.Map;
 
 import org.springframework.social.slack.api.MiscOperations;
 import org.springframework.social.slack.api.impl.model.SlackBotInfoResponse;
-import org.springframework.social.slack.api.impl.model.SlackCommentResponse;
 import org.springframework.social.slack.api.impl.model.SlackResponse;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;

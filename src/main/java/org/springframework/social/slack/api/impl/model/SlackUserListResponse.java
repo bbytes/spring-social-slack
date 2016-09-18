@@ -4,9 +4,11 @@ import java.util.List;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class SlackUserAllResponse extends SlackResponse {
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class SlackUserListResponse extends SlackResponse {
 
 	@JsonProperty("members")
 	private List<SlackUser> userList;
