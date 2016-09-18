@@ -24,6 +24,13 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 
+/**
+ * Currently doesn't support proxy feature : TODO Proxy server feature in rtm
+ * websocket client
+ * 
+ * @author Thanneer
+ *
+ */
 @ClientEndpoint
 public class RTMClient {
 
