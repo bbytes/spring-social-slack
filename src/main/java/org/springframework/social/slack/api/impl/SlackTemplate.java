@@ -15,10 +15,13 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.social.oauth2.AbstractOAuth2ApiBinding;
 import org.springframework.social.slack.api.ChannelOperations;
 import org.springframework.social.slack.api.ChatOperations;
+import org.springframework.social.slack.api.DndOperations;
+import org.springframework.social.slack.api.FileCommentsOperations;
 import org.springframework.social.slack.api.FilesOperations;
 import org.springframework.social.slack.api.GroupOperations;
 import org.springframework.social.slack.api.IMDirectMessageOperations;
 import org.springframework.social.slack.api.MessageOperations;
+import org.springframework.social.slack.api.MiscOperations;
 import org.springframework.social.slack.api.RTMOperations;
 import org.springframework.social.slack.api.ReactionOperations;
 import org.springframework.social.slack.api.SearchOperations;
@@ -177,6 +180,21 @@ public class SlackTemplate extends AbstractOAuth2ApiBinding implements Slack {
 	@Override
 	public GroupOperations groupOperations() {
 		return new GroupTemplate(getRestTemplate());
+	}
+
+	@Override
+	public FileCommentsOperations fileCommentOperations() {
+		return new FileCommentsTemplate(getRestTemplate());
+	}
+
+	@Override
+	public MiscOperations miscOperations() {
+		return new MiscTemplate(getRestTemplate());
+	}
+
+	@Override
+	public DndOperations dndOperations() {
+		return new DndTemplate(getRestTemplate());
 	}
 
 }

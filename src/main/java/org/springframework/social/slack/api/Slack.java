@@ -50,5 +50,11 @@ public interface Slack {
 	public TeamOperations teamOperations();
 
 	public GroupOperations groupOperations();
+	
+	public FileCommentsOperations fileCommentOperations();
+	
+	public MiscOperations miscOperations();
+	
+	public DndOperations dndOperations();
 
 }

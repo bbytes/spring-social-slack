@@ -14,6 +14,10 @@ public class SlackComment {
 	private String user;
 	@JsonProperty("comment")
 	private String comment;
+	@JsonProperty("channel")
+	private String channel;
+	
+	
 
 	/**
 	 * 
@@ -89,6 +93,14 @@ public class SlackComment {
 	@JsonProperty("comment")
 	public void setComment(String comment) {
 		this.comment = comment;
+	}
+
+	public String getChannel() {
+		return channel;
+	}
+
+	public void setChannel(String channel) {
+		this.channel = channel;
 	}
 
 }

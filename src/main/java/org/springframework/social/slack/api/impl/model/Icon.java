@@ -3,10 +3,18 @@ package org.springframework.social.slack.api.impl.model;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Icon {
 
+	@JsonProperty("image_36")
+	private String image36;
+	@JsonProperty("image_48")
+	private String image48;
+	@JsonProperty("image_72")
+	private String image72;
 	@JsonProperty("image_34")
 	private String image34;
 	@JsonProperty("image_44")
@@ -21,6 +29,30 @@ public class Icon {
 	private String image132;
 	@JsonProperty("image_default")
 	private Boolean imageDefault;
+
+	public String getImage36() {
+		return image36;
+	}
+
+	public String getImage48() {
+		return image48;
+	}
+
+	public String getImage72() {
+		return image72;
+	}
+
+	public void setImage36(String image36) {
+		this.image36 = image36;
+	}
+
+	public void setImage48(String image48) {
+		this.image48 = image48;
+	}
+
+	public void setImage72(String image72) {
+		this.image72 = image72;
+	}
 
 	/**
 	 * 

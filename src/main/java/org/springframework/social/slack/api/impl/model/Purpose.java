@@ -1,7 +1,9 @@
 package org.springframework.social.slack.api.impl.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Purpose {
 
 	@JsonProperty("value")
