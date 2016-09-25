@@ -25,9 +25,9 @@ Usage
 ```
 Note :   
 
-Current version is 1.0.1-SNAPSHOT
+Current version is 1.0.0-RELEASE
 
-Replace ${org.springframework.social.slack.version} with 1.0.1-SNAPSHOT in your maven pom file 
+Replace ${org.springframework.social.slack.version} with 1.0.0-RELEASE in your maven pom file 
 
 #Project status : 
 
