@@ -7,11 +7,11 @@ import org.springframework.social.slack.api.impl.model.SlackDirectMsgChannelList
 import org.springframework.social.slack.api.impl.model.SlackGroupListResponse;
 import org.springframework.util.Assert;
 
-public class IMDirectMessageTemplateTest extends AbstractSlackApiTest {
+public class MessageTemplateTest extends AbstractSlackApiTest {
 
 	@Test
 	public void testDirectMsgChannels() throws SlackException {
-		SlackDirectMsgChannelListResponse response = getSlackTemplate().imDirectMessageOperations()
+		SlackDirectMsgChannelListResponse response = getSlackTemplate().messageOperations()
 				.getDirectMessageChannelList();
 		Assert.isTrue(response.isOk());
 		Assert.isTrue(!response.getDirectMsgChannels().isEmpty());
@@ -20,7 +20,7 @@ public class IMDirectMessageTemplateTest extends AbstractSlackApiTest {
 
 	@Test
 	public void testMultipartyDirectMessageChannelList() throws SlackException {
-		SlackGroupListResponse response = getSlackTemplate().imDirectMessageOperations()
+		SlackGroupListResponse response = getSlackTemplate().messageOperations()
 				.getMultipartyDirectMessageChannelList();
 		Assert.isTrue(response.isOk());
 		System.out.println(response);
@@ -30,7 +30,7 @@ public class IMDirectMessageTemplateTest extends AbstractSlackApiTest {
 	@Test
 	public void testOpenDirectMessageChannel() throws SlackException {
 	
-		SlackChannelResponse response = getSlackTemplate().imDirectMessageOperations()
+		SlackChannelResponse response = getSlackTemplate().messageOperations()
 				.openDirectMessageChannel(getSlackTemplate().userProfileOperations().getUserProfile().getId());
 		Assert.isTrue(response.isOk());
 		Assert.notNull(response.getChannel().getId());

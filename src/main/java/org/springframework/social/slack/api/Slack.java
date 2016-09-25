@@ -33,9 +33,7 @@ public interface Slack {
 
 	public ReactionOperations reactionOperations();
 
-	public MessageOperations messageOperations();
-
-	public GroupOperations rroupOperations();
+	public GroupOperations groupOperations();
 
 	public FilesOperations filesOperations();
 
@@ -43,18 +41,21 @@ public interface Slack {
 
 	public ChannelOperations channelOperations();
 
-	public IMDirectMessageOperations imDirectMessageOperations();
+	public MessageOperations messageOperations();
 
 	public RTMOperations rtmOperations();
 
 	public TeamOperations teamOperations();
 
-	public GroupOperations groupOperations();
-	
 	public FileCommentsOperations fileCommentOperations();
-	
+
 	public MiscOperations miscOperations();
-	
+
 	public DndOperations dndOperations();
 
+	public PinOperations pinOperations();
+
+	public ReminderOperations reminderOperations();
+
+	public StarOperations starOperations();
 }

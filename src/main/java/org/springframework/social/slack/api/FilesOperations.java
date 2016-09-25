@@ -41,7 +41,11 @@ public interface FilesOperations {
 
 	public SlackFileListResponse getFileList(int page, int count);
 
-	public SlackFileListResponse getFileList(String user);
+	public SlackFileListResponse getFileListForUser(String user);
+	
+	public SlackFileListResponse getFileListForChannel(String channel);
+	
+	public SlackFileListResponse getFileList(String channel, String user);
 
 	public SlackFileListResponse getFileList(String user, int page);
 

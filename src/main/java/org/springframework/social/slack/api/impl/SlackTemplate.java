@@ -19,13 +19,15 @@ import org.springframework.social.slack.api.DndOperations;
 import org.springframework.social.slack.api.FileCommentsOperations;
 import org.springframework.social.slack.api.FilesOperations;
 import org.springframework.social.slack.api.GroupOperations;
-import org.springframework.social.slack.api.IMDirectMessageOperations;
 import org.springframework.social.slack.api.MessageOperations;
 import org.springframework.social.slack.api.MiscOperations;
+import org.springframework.social.slack.api.PinOperations;
 import org.springframework.social.slack.api.RTMOperations;
 import org.springframework.social.slack.api.ReactionOperations;
+import org.springframework.social.slack.api.ReminderOperations;
 import org.springframework.social.slack.api.SearchOperations;
 import org.springframework.social.slack.api.Slack;
+import org.springframework.social.slack.api.StarOperations;
 import org.springframework.social.slack.api.TeamOperations;
 import org.springframework.social.slack.api.UserProfileOperations;
 import org.springframework.social.slack.api.UsersOperations;
@@ -128,24 +130,6 @@ public class SlackTemplate extends AbstractOAuth2ApiBinding implements Slack {
 	}
 
 	@Override
-	public ReactionOperations reactionOperations() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public MessageOperations messageOperations() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public GroupOperations rroupOperations() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public FilesOperations filesOperations() {
 		return new FileTemplate(getRestTemplate());
 	}
@@ -161,8 +145,8 @@ public class SlackTemplate extends AbstractOAuth2ApiBinding implements Slack {
 	}
 
 	@Override
-	public IMDirectMessageOperations imDirectMessageOperations() {
-		return new IMDirectMessageTemplate(getRestTemplate());
+	public MessageOperations messageOperations() {
+		return new MessageTemplate(getRestTemplate());
 	}
 
 	@Override
@@ -193,6 +177,26 @@ public class SlackTemplate extends AbstractOAuth2ApiBinding implements Slack {
 	@Override
 	public DndOperations dndOperations() {
 		return new DndTemplate(getRestTemplate());
+	}
+	
+	@Override
+	public ReactionOperations reactionOperations() {
+		return new ReactionTemplate(getRestTemplate());
+	}
+	
+	@Override
+	public PinOperations pinOperations() {
+		return new PinTemplate(getRestTemplate());
+	}
+	
+	@Override
+	public ReminderOperations reminderOperations() {
+		return new ReminderTemplate(getRestTemplate());
+	}
+	
+	@Override
+	public StarOperations starOperations() {
+		return new StarTemplate(getRestTemplate());
 	}
 
 }

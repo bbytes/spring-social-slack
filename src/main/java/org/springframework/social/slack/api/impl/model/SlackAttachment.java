@@ -4,36 +4,65 @@ import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Attachment {
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class SlackAttachment {
 
 	private static final String HEX_REGEX = "^([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$";
 	private static final String PREDEFINED_COLOR_REGEX = "^(good|warning|danger)$";
 
-	protected String fallback;
+	@JsonProperty("id")
+	private Integer id;
 
-	protected String color;
+	@JsonProperty("fallback")
+	private String fallback;
 
-	protected String pretext;
+	@JsonProperty("color")
+	private String color;
 
-	protected String author_name;
-	protected String author_link;
-	protected String author_icon;
+	@JsonProperty("pretext")
+	private String pretext;
 
-	protected String title;
-	protected String title_link;
+	@JsonProperty("author_name")
+	private String author_name;
 
-	protected String text;
+	@JsonProperty("author_link")
+	private String author_link;
 
-	protected List<Field> fields;
+	@JsonProperty("author_icon")
+	private String author_icon;
 
-	protected String image_url;
-	protected String thumb_url;
+	@JsonProperty("title")
+	private String title;
 
-	protected List<String> mrkdwn_in;
+	@JsonProperty("title_link")
+	private String title_link;
 
-	protected String footer;
-	protected String footer_icon;
-	protected Integer ts;
+	@JsonProperty("text")
+	private String text;
+
+	@JsonProperty("fields")
+	private List<Field> fields;
+
+	@JsonProperty("image_url")
+	private String image_url;
+
+	@JsonProperty("thumb_url")
+	private String thumb_url;
+
+	@JsonProperty("mrkdwn_in")
+	private List<String> mrkdwn_in;
+
+	@JsonProperty("footer")
+	private String footer;
+
+	@JsonProperty("footer_icon")
+	private String footer_icon;
+
+	@JsonProperty("ts")
+	private Integer ts;
 
 	public String getFallback() {
 		return fallback;
@@ -53,8 +82,10 @@ public class Attachment {
 				if (!color.substring(1).matches(HEX_REGEX)) {
 					throw new IllegalArgumentException("invalid hex color");
 				}
-			} else if (!color.matches(PREDEFINED_COLOR_REGEX)) {
-				throw new IllegalArgumentException("invalid predefined(good|warning|danger) color");
+			} else if (!color.isEmpty()) {
+				if (!color.matches(HEX_REGEX) && !color.matches(PREDEFINED_COLOR_REGEX)) {
+					throw new IllegalArgumentException("invalid color");
+				}
 			}
 		}
 

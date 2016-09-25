@@ -18,7 +18,7 @@ package org.springframework.social.slack.api;
 import java.util.List;
 
 import org.springframework.social.slack.api.impl.SlackException;
-import org.springframework.social.slack.api.impl.model.Attachment;
+import org.springframework.social.slack.api.impl.model.SlackAttachment;
 import org.springframework.social.slack.api.impl.model.SlackMessageResponse;
 
 /**
@@ -33,7 +33,7 @@ public interface ChatOperations {
 	public SlackMessageResponse meMessage(String message, String channelNameOrId);
 
 	public SlackMessageResponse postMessage(String channel, String text, String username, boolean asUser,
-			boolean linkNames, List<Attachment> attachments, boolean unfurlLinks, boolean unfurlMedia,
+			boolean linkNames, List<SlackAttachment> attachments, boolean unfurlLinks, boolean unfurlMedia,
 			String icon_url, String icon_emoji) throws SlackException;
 
 	public SlackMessageResponse deleteMessage(String timestamp, String channelNameOrId, boolean asUser);
@@ -41,5 +41,5 @@ public interface ChatOperations {
 	public SlackMessageResponse updateMessage(String timestamp, String channelNameOrId, boolean asUser, String message);
 
 	public SlackMessageResponse updateMessage(String timestamp, String channelNameOrId, boolean asUser, String message,
-			List<Attachment> attachments, boolean linkNames) throws SlackException;
+			List<SlackAttachment> attachments, boolean linkNames) throws SlackException;
 }

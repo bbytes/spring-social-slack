@@ -1,7 +1,7 @@
 package org.springframework.social.slack.api.impl;
 
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.social.slack.api.IMDirectMessageOperations;
+import org.springframework.social.slack.api.MessageOperations;
 import org.springframework.social.slack.api.impl.model.SlackChannelResponse;
 import org.springframework.social.slack.api.impl.model.SlackDirectMsgChannelListResponse;
 import org.springframework.social.slack.api.impl.model.SlackGroupListResponse;
@@ -13,9 +13,9 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestOperations;
 
-public class IMDirectMessageTemplate extends AbstractTemplate implements IMDirectMessageOperations {
+public class MessageTemplate extends AbstractTemplate implements MessageOperations {
 
-	public IMDirectMessageTemplate(RestOperations restOperations) {
+	public MessageTemplate(RestOperations restOperations) {
 		super(restOperations);
 	}
 

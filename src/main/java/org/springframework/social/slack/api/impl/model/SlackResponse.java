@@ -15,6 +15,8 @@
  */
 package org.springframework.social.slack.api.impl.model;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class SlackResponse {
@@ -72,5 +74,10 @@ public class SlackResponse {
 
 	public void setProvided(String provided) {
 		this.provided = provided;
+	}
+	
+	@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this);
 	}
 }

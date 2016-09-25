@@ -18,7 +18,7 @@ package org.springframework.social.slack.api.impl;
 import java.util.List;
 
 import org.springframework.social.slack.api.ChatOperations;
-import org.springframework.social.slack.api.impl.model.Attachment;
+import org.springframework.social.slack.api.impl.model.SlackAttachment;
 import org.springframework.social.slack.api.impl.model.SlackMessageResponse;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
@@ -61,7 +61,7 @@ public class ChatTemplate extends AbstractTemplate implements ChatOperations {
 
 	@Override
 	public SlackMessageResponse postMessage(String channel, String text, String username, boolean asUser,
-			boolean link_names, List<Attachment> attachments, boolean unfurl_links, boolean unfurl_media,
+			boolean link_names, List<SlackAttachment> attachments, boolean unfurl_links, boolean unfurl_media,
 			String icon_url, String icon_emoji) throws SlackException {
 		MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
 		map.add("channel", channel);
@@ -121,7 +121,7 @@ public class ChatTemplate extends AbstractTemplate implements ChatOperations {
 
 	@Override
 	public SlackMessageResponse updateMessage(String timestamp, String channelNameOrId, boolean asUser, String message,
-			List<Attachment> attachments, boolean linkNames) throws SlackException {
+			List<SlackAttachment> attachments, boolean linkNames) throws SlackException {
 
 		MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
 		map.add("ts", timestamp);

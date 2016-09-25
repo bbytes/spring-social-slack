@@ -83,13 +83,30 @@ public class FileTemplate extends AbstractTemplate implements FilesOperations {
 	}
 
 	@Override
-	public SlackFileListResponse getFileList(String userId) {
+	public SlackFileListResponse getFileListForUser(String userId) {
 		MultiValueMap<String, String> paramMap = new LinkedMultiValueMap<String, String>();
 		paramMap.add("user", userId);
 		SlackFileListResponse slackFileListResponse = get("/files.list", SlackFileListResponse.class);
 		return slackFileListResponse;
 	}
+	
+	@Override
+	public SlackFileListResponse getFileListForChannel(String channelId) {
+		MultiValueMap<String, String> paramMap = new LinkedMultiValueMap<String, String>();
+		paramMap.add("channel", channelId);
+		SlackFileListResponse slackFileListResponse = get("/files.list", SlackFileListResponse.class);
+		return slackFileListResponse;
+	}
 
+	@Override
+	public SlackFileListResponse getFileList(String channelId, String userId) {
+		MultiValueMap<String, String> paramMap = new LinkedMultiValueMap<String, String>();
+		paramMap.add("channel", channelId);
+		paramMap.add("user", userId);
+		SlackFileListResponse slackFileListResponse = get("/files.list", SlackFileListResponse.class);
+		return slackFileListResponse;
+	}
+	
 	@Override
 	public SlackFileListResponse getFileList(String userId, int page) {
 		MultiValueMap<String, String> paramMap = new LinkedMultiValueMap<String, String>();
@@ -148,7 +165,7 @@ public class FileTemplate extends AbstractTemplate implements FilesOperations {
 	public SlackFileResponse uploadFile(File file, String title, String initialComment, String channels)
 			throws Exception {
 		LinkedMultiValueMap<String, Object> map = new LinkedMultiValueMap<>();
-		map.add("file", new ByteArrayResource(Files.readAllBytes(file.toPath())));
+		map.add("file", new FileSystemResource(file));
 		map.add("title", title);
 		map.add("filetype", FilenameUtils.getExtension(file.getName()));
 		map.add("initialComment", initialComment);
@@ -162,7 +179,7 @@ public class FileTemplate extends AbstractTemplate implements FilesOperations {
 	public SlackFileResponse uploadFile(File file, String title, String fileType, String initialComment,
 			String channels) throws Exception {
 		LinkedMultiValueMap<String, Object> map = new LinkedMultiValueMap<>();
-		map.add("file", new ByteArrayResource(Files.readAllBytes(file.toPath())));
+		map.add("file", new FileSystemResource(file));
 		map.add("title", title);
 		map.add("filetype", fileType);
 		map.add("initialComment", initialComment);
@@ -174,7 +191,7 @@ public class FileTemplate extends AbstractTemplate implements FilesOperations {
 	@Override
 	public SlackFileResponse uploadFile(File file, String title, String channels) throws Exception {
 		LinkedMultiValueMap<String, Object> map = new LinkedMultiValueMap<>();
-		map.add("file", new ByteArrayResource(Files.readAllBytes(file.toPath())));
+		map.add("file", new FileSystemResource(file));
 		map.add("title", title);
 		map.add("filetype", FilenameUtils.getExtension(file.getName()));
 		map.add("channels", channels);
@@ -200,5 +217,7 @@ public class FileTemplate extends AbstractTemplate implements FilesOperations {
 		SlackFileResponse slackFileResponse = post("/files.upload", requestEntity, SlackFileResponse.class);
 		return slackFileResponse;
 	}
+
+
 
 }

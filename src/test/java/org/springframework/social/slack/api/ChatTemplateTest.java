@@ -8,7 +8,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 import org.junit.Test;
 import org.springframework.social.slack.api.impl.SlackException;
-import org.springframework.social.slack.api.impl.model.Attachment;
+import org.springframework.social.slack.api.impl.model.SlackAttachment;
 import org.springframework.social.slack.api.impl.model.Color;
 import org.springframework.social.slack.api.impl.model.SlackMessageResponse;
 import org.springframework.util.Assert;
@@ -37,10 +37,10 @@ public class ChatTemplateTest extends AbstractSlackApiTest {
 	@Test
 	public void testDetailSendPostMessage() throws SlackException {
 		ChatOperations chatOperations = getSlackTemplate().chatOperations();
-		Attachment attachment = new Attachment();
+		SlackAttachment attachment = new SlackAttachment();
 		attachment.setText("Random text in attachment");
 		attachment.setColor(Color.GOOD);
-		List<Attachment> attachments = new ArrayList<>();
+		List<SlackAttachment> attachments = new ArrayList<>();
 		attachments.add(attachment);
 		
 		SlackMessageResponse messageResponse = chatOperations

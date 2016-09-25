@@ -5,11 +5,14 @@ import org.junit.Before;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.social.slack.api.impl.SlackTemplate;
+import org.springframework.social.slack.api.impl.model.SlackUser;
 import org.springframework.social.test.client.MockRestServiceServer;
 
 public class AbstractSlackApiTest {
 
-	protected static final String APP_ACCESS_TOKEN = "xoxp-3105667121-3107455865-XXXXXXXXXX-XXXXXXX";
+	// protected static final String APP_ACCESS_TOKEN =
+	// "xoxp-3105667121-3107455865-XXXXXXXXXX-XXXXXXX";
+	protected static final String APP_ACCESS_TOKEN = "xoxp-3105667121-3107455865-72056004419-2563a17af9";
 
 	protected SlackTemplate slackTemplate;
 	protected SlackTemplate slack;
@@ -29,6 +32,11 @@ public class AbstractSlackApiTest {
 
 	protected Resource jsonResource(String filename) {
 		return new ClassPathResource(filename + ".json", getClass());
+	}
+
+	protected SlackUser getCurrentUser() {
+		SlackUser user = getSlackTemplate().userProfileOperations().getUserProfile();
+		return user;
 	}
 
 }
