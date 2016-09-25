@@ -15,11 +15,41 @@
  */
 package org.springframework.social.slack.api;
 
+import org.springframework.social.slack.api.impl.model.SlackSearchResponse;
+
 /**
-* Defines operations for interacting with search
-* @author Thanneer
-*/
+ * Defines operations for interacting with search
+ * 
+ * @author Thanneer
+ */
 public interface SearchOperations {
 
+	public SlackSearchResponse searchAll(String query);
+
+	public SlackSearchResponse searchAll(String query, String sort, String sortDirection);
+
+	public SlackSearchResponse searchAll(String query, int count, int page);
+
+	public SlackSearchResponse searchAll(String query, String sort, String sortDirection, boolean highlight, int count,
+			int page);
+	
+	public SlackSearchResponse searchFiles(String query);
+
+	public SlackSearchResponse searchFiles(String query, String sort, String sortDirection);
+
+	public SlackSearchResponse searchFiles(String query, int count, int page);
+
+	public SlackSearchResponse searchFiles(String query, String sort, String sortDirection, boolean highlight, int count,
+			int page);
+	
+	
+	public SlackSearchResponse searchMessages(String query);
+
+	public SlackSearchResponse searchMessages(String query, String sort, String sortDirection);
+
+	public SlackSearchResponse searchMessages(String query, int count, int page);
+
+	public SlackSearchResponse searchMessages(String query, String sort, String sortDirection, boolean highlight, int count,
+			int page);
 
 }

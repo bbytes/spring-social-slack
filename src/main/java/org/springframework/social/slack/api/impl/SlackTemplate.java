@@ -125,8 +125,7 @@ public class SlackTemplate extends AbstractOAuth2ApiBinding implements Slack {
 
 	@Override
 	public SearchOperations searchOperations() {
-		// TODO Auto-generated method stub
-		return null;
+		return new SearchTemplate(getRestTemplate());
 	}
 
 	@Override
