@@ -15,6 +15,8 @@
  */
 package org.springframework.social.slack.connect;
 
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.social.ApiException;
 import org.springframework.social.connect.ApiAdapter;
 import org.springframework.social.connect.ConnectionValues;
@@ -44,6 +46,10 @@ public class SlackAdapter implements ApiAdapter<Slack> {
 	@Override
 	public void setConnectionValues(Slack api, ConnectionValues values) {
 		SlackUser profile = api.userProfileOperations().getUserProfile();
+
+		logger.info("Profile = " + profile);
+		logger.info("values = " + values);
+
 		values.setProviderUserId(profile.getId());
 		values.setDisplayName(profile.getUserInfo().getRealName());
 		values.setProfileUrl(profile.getUserInfo().getImage72());
@@ -64,4 +70,5 @@ public class SlackAdapter implements ApiAdapter<Slack> {
 
 	}
 
+	private final static Log logger = LogFactory.getLog(SlackAdapter.class);
 }
