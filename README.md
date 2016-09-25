@@ -30,12 +30,15 @@ Current version is 1.0.1-SNAPSHOT
 Replace ${org.springframework.social.slack.version} with 1.0.1-SNAPSHOT in your maven pom file 
 
 #Project status : 
-Few operations (features) to be completed.
 
 API list taken from  https://api.slack.com/methods
 
-Pending feature : 
+All apis implemented . 
 
-search api 
+Check test case for usage 
+
+Note :
+Update api token to run test case.
+https://github.com/bbytes/spring-social-slack/blob/master/src/test/resources/test.properties
 
 
