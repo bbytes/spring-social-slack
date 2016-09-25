@@ -34,8 +34,12 @@ Few operations (features) to be completed.
 
 API list taken from  https://api.slack.com/methods
 
-Pending feature : 
+All apis implemented . 
 
-search api 
+Check test case for usage 
+
+Note :
+Update api token to run test case.
+https://github.com/bbytes/spring-social-slack/blob/master/src/test/resources/test.properties
 
 
