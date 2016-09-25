@@ -34,11 +34,8 @@ Few operations (features) to be completed.
 
 API list taken from  https://api.slack.com/methods
 
-Pending features : 
+Pending feature : 
 
-pins api ,
-reactions api ,
-reminders api ,
-search api ,
-stars api ,
+search api 
+
 
