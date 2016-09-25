@@ -20,7 +20,7 @@ Usage
 		<dependency>
 			<groupId>org.springframework.social</groupId>
 			<artifactId>spring-social-slack</artifactId>
-			<version>${org.springframework.social.slack.version}</version>
+			<version>1.0.0-RELEASE</version>
 		</dependency>
 ```
 Note :   
