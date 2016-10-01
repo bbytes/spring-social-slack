@@ -15,10 +15,39 @@
  */
 package org.springframework.social.slack.api;
 
+import org.springframework.social.slack.api.impl.model.SlackReactionItemListResponse;
+import org.springframework.social.slack.api.impl.model.SlackResponse;
+
 /**
 * Defines operations for interacting with reactions
 * @author Thanneer
 */
 public interface ReactionOperations {
+	
+	public SlackResponse addReactionToFile(String emojiName, String file);
+	
+	public SlackResponse addReactionToFileComment(String emojiName, String file_comment);
+	
+	public SlackResponse addReactionToMessage(String emojiName, String channel, String timestamp);
+	
+	public SlackReactionItemListResponse getReactionByFile(String emojiName, String file);
+	
+	public SlackReactionItemListResponse getReactionByFileComment(String emojiName, String file_comment);
+	
+	public SlackReactionItemListResponse getReactionByMessage(String emojiName, String channel, String timestamp);
+	
+	public SlackReactionItemListResponse getReactionList(int page);
+	
+	public SlackReactionItemListResponse getReactionList(int page, int count);
+	
+	public SlackReactionItemListResponse getReactionList(String user, int page);
+	
+	public SlackReactionItemListResponse getReactionList(String user, int page, int count);
+	
+	public SlackResponse removeReactionFromFile(String emojiName, String file);
+	
+	public SlackResponse removeReactionFromFileComment(String emojiName, String file_comment);
+	
+	public SlackResponse removeReactionFromMessage(String emojiName, String channel, String timestamp);
 
 }

@@ -15,6 +15,13 @@
  */
 package org.springframework.social.slack.api;
 
+
+
+import org.springframework.social.slack.api.impl.model.SlackHistoryResponse;
+import org.springframework.social.slack.api.impl.model.SlackGroupListResponse;
+import org.springframework.social.slack.api.impl.model.SlackGroupResponse;
+import org.springframework.social.slack.api.impl.model.SlackResponse;
+
 /**
  * Defines operations for interacting with group
  * 
@@ -22,4 +29,43 @@ package org.springframework.social.slack.api;
  */
 public interface GroupOperations {
 
+	public SlackResponse archiveGroup(String channel) ;
+	
+	public SlackResponse closeGroup(String channel);
+	
+	public SlackGroupResponse createGroup(String name);
+	
+	public SlackGroupResponse createChildGroup(String name);
+	
+	public SlackGroupResponse getGroupInfo(String channel) ;
+	
+	public SlackGroupResponse inviteUserToGroup(String channel, String user) ;
+	
+	public SlackResponse leaveGroup(String channel);
+	
+	public SlackGroupListResponse getGroupList();
+	
+	public SlackGroupListResponse getGroupList(boolean exclude_archived) ;
+	
+	public SlackResponse markGroup(String channel, String ts) ;
+
+	public SlackResponse openGroup(String channel) ;
+
+	public SlackGroupResponse renameGroup(String channel, String name) ;
+
+	public SlackResponse setGroupPurpose(String channel, String purpose) ;
+
+	public SlackResponse setGroupTopic(String channel, String topic);
+
+	public SlackResponse unarchiveGroup(String channel) ;
+	
+	public SlackResponse kickUserFormGroup(String channel, String user);
+	
+	public SlackHistoryResponse getGroupHistory(String channel);
+	
+	public SlackHistoryResponse getGroupHistory(String channel, int count) ;
+	
+	public SlackHistoryResponse getGroupHistory(String channel, String latest, String oldest, boolean inclusive, int count, boolean unreads) ;
+	
+	
 }

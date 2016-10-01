@@ -15,7 +15,6 @@
  */
 package org.springframework.social.slack.api;
 
-import java.util.Collection;
 import java.util.List;
 
 import org.springframework.social.slack.api.impl.model.SlackChannel;
@@ -28,6 +27,8 @@ import org.springframework.social.slack.api.impl.model.SlackResponse;
 public interface ChannelOperations {
 
 	public SlackResponse archiveChannel(String channelId);
+	
+	public SlackResponse unarchiveChannel(String channelId);
 	
 	public SlackChannel createChannel(String channelName);
 

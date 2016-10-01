@@ -15,11 +15,47 @@
  */
 package org.springframework.social.slack.api;
 
+import org.springframework.social.slack.api.impl.model.SlackChannelResponse;
+import org.springframework.social.slack.api.impl.model.SlackDirectMsgChannelListResponse;
+import org.springframework.social.slack.api.impl.model.SlackGroupListResponse;
+import org.springframework.social.slack.api.impl.model.SlackGroupResponse;
+import org.springframework.social.slack.api.impl.model.SlackHistoryResponse;
+import org.springframework.social.slack.api.impl.model.SlackResponse;
+
 /**
- * Defines operations for interacting with message
+ * Defines operations for interacting with slack im
  * 
  * @author Thanneer
  */
 public interface MessageOperations {
 
+	public SlackResponse closeDirectMessageChannel(String channel);
+
+	public SlackHistoryResponse getDirectMessageChannelHistory(String channel);
+
+	public SlackHistoryResponse getDirectMessageChannelHistory(String channel, int count);
+
+	public SlackHistoryResponse getDirectMessageChannelHistory(String channel, String latest, String oldest,
+			boolean inclusive, int count, boolean unreads);
+
+	public SlackDirectMsgChannelListResponse getDirectMessageChannelList();
+
+	public SlackResponse markDirectMessageChannel(String channel, String ts);
+
+	public SlackChannelResponse openDirectMessageChannel(String user);
+
+	public SlackResponse closeMultipartyDirectMessageChannel(String channel);
+
+	public SlackHistoryResponse getMultipartyDirectMessageChannelHistory(String channel);
+
+	public SlackHistoryResponse getMultipartyDirectMessageChannelHistory(String channel, int count);
+
+	public SlackHistoryResponse getMultipartyDirectMessageChannelHistory(String channel, String latest, String oldest,
+			boolean inclusive, int count, boolean unreads);
+
+	public SlackGroupListResponse getMultipartyDirectMessageChannelList();
+
+	public SlackResponse markMultipartyDirectMessageChannel(String channel, String ts);
+
+	public SlackGroupResponse openMultipartyDirectMessageChannel(String... users);
 }

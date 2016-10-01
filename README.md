@@ -20,17 +20,25 @@ Usage
 		<dependency>
 			<groupId>org.springframework.social</groupId>
 			<artifactId>spring-social-slack</artifactId>
-			<version>${org.springframework.social.slack.version}</version>
+			<version>1.0.0-RELEASE</version>
 		</dependency>
 ```
 Note :   
 
-Current version is 1.0.1-SNAPSHOT
+Current version is 1.0.0-RELEASE
 
-Replace ${org.springframework.social.slack.version} with 1.0.1-SNAPSHOT in your maven pom file 
+Replace ${org.springframework.social.slack.version} with 1.0.0-RELEASE in your maven pom file 
 
 #Project status : 
-At the moment it is a very early work in progress and only supports the basic operation of slack  user , team operations , channel operation etc.
 
-ToDo: The implemented feature list and pending list to be posted.
+API list taken from  https://api.slack.com/methods
+
+All apis implemented . 
+
+Check test case for usage 
+
+Note :
+Update api token to run test case.
+https://github.com/bbytes/spring-social-slack/blob/master/src/test/resources/test.properties
+
 

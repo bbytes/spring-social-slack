@@ -6,7 +6,9 @@ import java.net.URISyntaxException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.springframework.http.HttpEntity;
 import org.springframework.social.slack.api.Slack;
+import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestOperations;
 import org.springframework.web.util.UriComponents;
@@ -25,6 +27,10 @@ public abstract class AbstractTemplate {
 
 	protected <T> T post(String reativeURL, MultiValueMap<String, String> paramMap, Class<T> type) {
 		return restOperations.postForObject(Slack.SLACK_HTTPS_AUTH_URL + reativeURL, paramMap, type);
+	}
+	
+	protected <T> T post(String reativeURL,HttpEntity<LinkedMultiValueMap<String, Object>> requestEntity, Class<T> type) {
+		return restOperations.postForObject(Slack.SLACK_HTTPS_AUTH_URL + reativeURL, requestEntity, type);
 	}
 
 	protected <T> T get(String reativeURL, MultiValueMap<String, String> paramMap, Class<T> type) {

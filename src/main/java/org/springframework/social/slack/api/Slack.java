@@ -30,25 +30,32 @@ public interface Slack {
 	public UserProfileOperations userProfileOperations();
 
 	public SearchOperations searchOperations();
-	
-	public ReactionOperations reactionOperations();
-	
-	public MessageOperations messageOperations();
-	
-	public GroupOperations rroupOperations();
-	
-	public FilesOperations filesOperations();
-	
-	public ChatOperations chatOperations();
-	
-	public ChannelOperations channelOperations();
-	
-	public IMDirectMessageOperations imOperations();
-	
-	public RTMOperations rtmOperations();
-	
-	public TeamOperations teamOperations();
-	
-	
 
+	public ReactionOperations reactionOperations();
+
+	public GroupOperations groupOperations();
+
+	public FilesOperations filesOperations();
+
+	public ChatOperations chatOperations();
+
+	public ChannelOperations channelOperations();
+
+	public MessageOperations messageOperations();
+
+	public RTMOperations rtmOperations();
+
+	public TeamOperations teamOperations();
+
+	public FileCommentsOperations fileCommentOperations();
+
+	public MiscOperations miscOperations();
+
+	public DndOperations dndOperations();
+
+	public PinOperations pinOperations();
+
+	public ReminderOperations reminderOperations();
+
+	public StarOperations starOperations();
 }

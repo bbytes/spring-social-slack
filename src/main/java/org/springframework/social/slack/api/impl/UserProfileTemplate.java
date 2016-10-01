@@ -1,7 +1,5 @@
 package org.springframework.social.slack.api.impl;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.social.slack.api.UserProfileOperations;
 import org.springframework.social.slack.api.impl.model.SlackAuthInfo;
 import org.springframework.social.slack.api.impl.model.SlackPresence;
@@ -13,8 +11,6 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestOperations;
 
 public class UserProfileTemplate extends AbstractTemplate implements UserProfileOperations {
-
-	private static final Log log = LogFactory.getLog(UserProfileTemplate.class);
 
 	public UserProfileTemplate(RestOperations restOperations) {
 		super(restOperations);

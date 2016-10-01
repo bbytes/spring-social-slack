@@ -15,11 +15,31 @@
  */
 package org.springframework.social.slack.api;
 
-/**
-* Defines operations for interacting with a lack User
-* @author Thanneer
-*/
-public interface ChatOperations {
-	
+import java.util.List;
 
+import org.springframework.social.slack.api.impl.SlackException;
+import org.springframework.social.slack.api.impl.model.SlackAttachment;
+import org.springframework.social.slack.api.impl.model.SlackMessageResponse;
+
+/**
+ * Defines operations for interacting with a lack User
+ * 
+ * @author Thanneer
+ */
+public interface ChatOperations {
+
+	public SlackMessageResponse postMessage(String message, String channelNameOrId);
+
+	public SlackMessageResponse meMessage(String message, String channelNameOrId);
+
+	public SlackMessageResponse postMessage(String channel, String text, String username, boolean asUser,
+			boolean linkNames, List<SlackAttachment> attachments, boolean unfurlLinks, boolean unfurlMedia,
+			String icon_url, String icon_emoji) throws SlackException;
+
+	public SlackMessageResponse deleteMessage(String timestamp, String channelNameOrId, boolean asUser);
+
+	public SlackMessageResponse updateMessage(String timestamp, String channelNameOrId, boolean asUser, String message);
+
+	public SlackMessageResponse updateMessage(String timestamp, String channelNameOrId, boolean asUser, String message,
+			List<SlackAttachment> attachments, boolean linkNames) throws SlackException;
 }

@@ -1,16 +1,25 @@
-
 package org.springframework.social.slack.api.impl.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Purpose {
 
+	@JsonProperty("value")
 	private String value;
+	
+	@JsonProperty("creator")
 	private String creator;
+	
+	@JsonProperty("last_set")
 	private Integer lastSet;
 
 	/**
 	 * 
 	 * @return The value
 	 */
+	@JsonProperty("value")
 	public String getValue() {
 		return value;
 	}
@@ -20,6 +29,7 @@ public class Purpose {
 	 * @param value
 	 *            The value
 	 */
+	@JsonProperty("value")
 	public void setValue(String value) {
 		this.value = value;
 	}
@@ -28,6 +38,7 @@ public class Purpose {
 	 * 
 	 * @return The creator
 	 */
+	@JsonProperty("creator")
 	public String getCreator() {
 		return creator;
 	}
@@ -37,6 +48,7 @@ public class Purpose {
 	 * @param creator
 	 *            The creator
 	 */
+	@JsonProperty("creator")
 	public void setCreator(String creator) {
 		this.creator = creator;
 	}
@@ -45,6 +57,7 @@ public class Purpose {
 	 * 
 	 * @return The lastSet
 	 */
+	@JsonProperty("last_set")
 	public Integer getLastSet() {
 		return lastSet;
 	}
@@ -54,6 +67,7 @@ public class Purpose {
 	 * @param lastSet
 	 *            The last_set
 	 */
+	@JsonProperty("last_set")
 	public void setLastSet(Integer lastSet) {
 		this.lastSet = lastSet;
 	}

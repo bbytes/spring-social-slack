@@ -15,14 +15,19 @@ import org.springframework.http.converter.json.MappingJackson2HttpMessageConvert
 import org.springframework.social.oauth2.AbstractOAuth2ApiBinding;
 import org.springframework.social.slack.api.ChannelOperations;
 import org.springframework.social.slack.api.ChatOperations;
+import org.springframework.social.slack.api.DndOperations;
+import org.springframework.social.slack.api.FileCommentsOperations;
 import org.springframework.social.slack.api.FilesOperations;
 import org.springframework.social.slack.api.GroupOperations;
-import org.springframework.social.slack.api.IMDirectMessageOperations;
 import org.springframework.social.slack.api.MessageOperations;
+import org.springframework.social.slack.api.MiscOperations;
+import org.springframework.social.slack.api.PinOperations;
 import org.springframework.social.slack.api.RTMOperations;
 import org.springframework.social.slack.api.ReactionOperations;
+import org.springframework.social.slack.api.ReminderOperations;
 import org.springframework.social.slack.api.SearchOperations;
 import org.springframework.social.slack.api.Slack;
+import org.springframework.social.slack.api.StarOperations;
 import org.springframework.social.slack.api.TeamOperations;
 import org.springframework.social.slack.api.UserProfileOperations;
 import org.springframework.social.slack.api.UsersOperations;
@@ -120,38 +125,17 @@ public class SlackTemplate extends AbstractOAuth2ApiBinding implements Slack {
 
 	@Override
 	public SearchOperations searchOperations() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public ReactionOperations reactionOperations() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public MessageOperations messageOperations() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public GroupOperations rroupOperations() {
-		// TODO Auto-generated method stub
-		return null;
+		return new SearchTemplate(getRestTemplate());
 	}
 
 	@Override
 	public FilesOperations filesOperations() {
-		// TODO Auto-generated method stub
-		return null;
+		return new FileTemplate(getRestTemplate());
 	}
 
 	@Override
 	public ChatOperations chatOperations() {
-		// TODO Auto-generated method stub
-		return null;
+		return new ChatTemplate(getRestTemplate());
 	}
 
 	@Override
@@ -160,20 +144,58 @@ public class SlackTemplate extends AbstractOAuth2ApiBinding implements Slack {
 	}
 
 	@Override
-	public IMDirectMessageOperations imOperations() {
-		// TODO Auto-generated method stub
-		return null;
+	public MessageOperations messageOperations() {
+		return new MessageTemplate(getRestTemplate());
 	}
 
 	@Override
 	public RTMOperations rtmOperations() {
-		// TODO Auto-generated method stub
-		return null;
+		return new RTMTemplate(getRestTemplate());
 	}
 
 	@Override
 	public TeamOperations teamOperations() {
 		return new TeamTemplate(getRestTemplate());
+	}
+
+	@Override
+	public GroupOperations groupOperations() {
+		return new GroupTemplate(getRestTemplate());
+	}
+
+	@Override
+	public FileCommentsOperations fileCommentOperations() {
+		return new FileCommentsTemplate(getRestTemplate());
+	}
+
+	@Override
+	public MiscOperations miscOperations() {
+		return new MiscTemplate(getRestTemplate());
+	}
+
+	@Override
+	public DndOperations dndOperations() {
+		return new DndTemplate(getRestTemplate());
+	}
+	
+	@Override
+	public ReactionOperations reactionOperations() {
+		return new ReactionTemplate(getRestTemplate());
+	}
+	
+	@Override
+	public PinOperations pinOperations() {
+		return new PinTemplate(getRestTemplate());
+	}
+	
+	@Override
+	public ReminderOperations reminderOperations() {
+		return new ReminderTemplate(getRestTemplate());
+	}
+	
+	@Override
+	public StarOperations starOperations() {
+		return new StarTemplate(getRestTemplate());
 	}
 
 }

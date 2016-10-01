@@ -19,7 +19,7 @@ import java.util.List;
 
 import org.springframework.social.slack.api.ChannelOperations;
 import org.springframework.social.slack.api.impl.model.SlackChannel;
-import org.springframework.social.slack.api.impl.model.SlackChannelAllResponse;
+import org.springframework.social.slack.api.impl.model.SlackChannelListResponse;
 import org.springframework.social.slack.api.impl.model.SlackChannelResponse;
 import org.springframework.social.slack.api.impl.model.SlackResponse;
 import org.springframework.util.LinkedMultiValueMap;
@@ -39,14 +39,26 @@ public class ChannelTemplate extends AbstractTemplate implements ChannelOperatio
 
 	@Override
 	public SlackResponse archiveChannel(String channelId) {
-		// TODO Auto-generated method stub
-		return null;
+		MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
+		map.add("channel",channelId);
+		SlackResponse slackResponse = get("/channels.archive", map, SlackResponse.class);
+		return slackResponse;
+	}
+	
+	@Override
+	public SlackResponse unarchiveChannel(String channelId) {
+		MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
+		map.add("channel",channelId);
+		SlackResponse slackResponse = get("/channels.unarchive", map, SlackResponse.class);
+		return slackResponse;
 	}
 
 	@Override
 	public SlackChannel createChannel(String channelName) {
-		// TODO Auto-generated method stub
-		return null;
+		MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
+		map.add("name",channelName);
+		SlackChannelResponse slackChannelResponse = get("/channels.create", map, SlackChannelResponse.class);
+		return slackChannelResponse.getChannel();
 	}
 
 
@@ -63,7 +75,7 @@ public class ChannelTemplate extends AbstractTemplate implements ChannelOperatio
 	 */
 	@Override
 	public List<SlackChannel> getAllChannels() {
-		SlackChannelAllResponse channelAllResponse = get("/channels.list", SlackChannelAllResponse.class);
+		SlackChannelListResponse channelAllResponse = get("/channels.list", SlackChannelListResponse.class);
 		return channelAllResponse.getChannelList();
 	}
 

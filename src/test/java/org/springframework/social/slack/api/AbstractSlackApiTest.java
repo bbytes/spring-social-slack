@@ -1,8 +1,17 @@
 package org.springframework.social.slack.api;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
+import org.junit.Before;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.social.slack.api.impl.SlackTemplate;
+import org.springframework.social.slack.api.impl.model.SlackUser;
 import org.springframework.social.test.client.MockRestServiceServer;
 
 import java.io.IOException;
@@ -12,31 +21,28 @@ import java.util.Properties;
 import org.junit.Before;
 
 public class AbstractSlackApiTest {
-			
-	protected static final String APP_ACCESS_TOKEN;
+
+	protected static final String API_ACCESS_TOKEN_PROP = "API_ACCESS_TOKEN";
+	protected static final String TEST_USERNAME_PROP = "TEST_USERNAME";
+
+	protected static final Properties TEST_PROPERTIES = new Properties();
 
 	static {
-		final Properties properties = new Properties();
-		try (final InputStream stream =
-				 AbstractSlackApiTest.class.getResourceAsStream("test.properties")) {
-			properties.load(stream);
-
-			APP_ACCESS_TOKEN = properties.getProperty("appAccessToken");
-		} catch (IOException ioe) {
-			throw new RuntimeException("Can't load test.properties from classpath", ioe);
+		InputStream is = ClassLoader.getSystemResourceAsStream("test.properties");
+		try {
+			TEST_PROPERTIES.load(is);
+		} catch (IOException ios) {
+			System.err.println("Can't load test properties!");
 		}
 	}
 
 	protected SlackTemplate slackTemplate;
 	protected SlackTemplate slack;
 	protected MockRestServiceServer mockServer;
-	
 
 	@Before
-	public void setup() {
-
-		slackTemplate = new SlackTemplate(APP_ACCESS_TOKEN);
-//		mockServer = MockRestServiceServer.createServer(slackTemplate.getRestTemplate());
+	public void setup() throws FileNotFoundException, IOException {
+		slackTemplate = new SlackTemplate(getTestAPIToken());
 	}
 
 	protected SlackTemplate getSlackTemplate() {
@@ -47,4 +53,16 @@ public class AbstractSlackApiTest {
 		return new ClassPathResource(filename + ".json", getClass());
 	}
 
+	protected SlackUser getCurrentUser() {
+		SlackUser user = getSlackTemplate().userProfileOperations().getUserProfile();
+		return user;
+	}
+
+	protected String getTestUserName() {
+		return TEST_PROPERTIES.getProperty(TEST_USERNAME_PROP);
+	}
+
+	private String getTestAPIToken() {
+		return TEST_PROPERTIES.getProperty(API_ACCESS_TOKEN_PROP);
+	}
 }
