@@ -27,7 +27,7 @@ public class ChatTemplateTest extends AbstractSlackApiTest {
 	@Test
 	public void testDirectSendPostMessage() {
 		ChatOperations chatOperations = getSlackTemplate().chatOperations();
-		String userName ="tm";
+		String userName = getTestUserName();
 		SlackMessageResponse messageResponse = chatOperations
 				.postMessage("Direct message with id " + UUID.randomUUID(), "@" + userName);
 		System.out.println(ToStringBuilder.reflectionToString(messageResponse, ToStringStyle.MULTI_LINE_STYLE));

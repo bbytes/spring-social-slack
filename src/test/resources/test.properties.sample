@@ -1,0 +1,3 @@
+# Replace with your access token below, and rename this test.properties
+API_ACCESS_TOKEN=xoxp-xxxxxx
+TEST_USERNAME=tm
