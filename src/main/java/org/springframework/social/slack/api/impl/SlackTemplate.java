@@ -31,7 +31,6 @@ import org.springframework.social.slack.api.StarOperations;
 import org.springframework.social.slack.api.TeamOperations;
 import org.springframework.social.slack.api.UserProfileOperations;
 import org.springframework.social.slack.api.UsersOperations;
-import org.springframework.social.slack.api.impl.json.SlackModule;
 import org.springframework.social.support.HttpRequestDecorator;
 import org.springframework.util.Assert;
 
@@ -67,7 +66,6 @@ public class SlackTemplate extends AbstractOAuth2ApiBinding implements Slack {
 		MappingJackson2HttpMessageConverter converter = super.getJsonMessageConverter();
 		objectMapper = new ObjectMapper();
 		objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-		objectMapper.registerModule(new SlackModule());
 		converter.setObjectMapper(objectMapper);
 		return converter;
 	}
