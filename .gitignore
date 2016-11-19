@@ -13,3 +13,6 @@ hs_err_pid*
 /.classpath
 /.project
 src/test/resources/test.properties
+
+.idea/
+*.iml
