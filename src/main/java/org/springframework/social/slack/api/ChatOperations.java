@@ -30,11 +30,13 @@ public interface ChatOperations {
 
 	public SlackMessageResponse postMessage(String message, String channelNameOrId);
 
-	public SlackMessageResponse meMessage(String message, String channelNameOrId);
+	public SlackMessageResponse postMessage(String message, String channelNameOrId, String usernameOrBotName);
 
-	public SlackMessageResponse postMessage(String channel, String text, String username, boolean asUser,
-			boolean linkNames, List<SlackAttachment> attachments, boolean unfurlLinks, boolean unfurlMedia,
-			String icon_url, String icon_emoji) throws SlackException;
+	public SlackMessageResponse postMessage(String channel, String text, String username, boolean asUser, boolean linkNames,
+			List<SlackAttachment> attachments, boolean unfurlLinks, boolean unfurlMedia, String icon_url, String icon_emoji)
+			throws SlackException;
+
+	public SlackMessageResponse meMessage(String message, String channelNameOrId);
 
 	public SlackMessageResponse deleteMessage(String timestamp, String channelNameOrId, boolean asUser);
 

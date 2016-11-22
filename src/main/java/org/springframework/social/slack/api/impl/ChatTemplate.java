@@ -44,6 +44,7 @@ public class ChatTemplate extends AbstractTemplate implements ChatOperations {
 		map.add("channel", channelNameOrId);
 		map.add("text", message);
 		map.add("as_user", "true");
+		map.add("unfurl_links", "true");
 		SlackMessageResponse slackResponse = post("/chat.postMessage", map, SlackMessageResponse.class);
 		return slackResponse;
 
@@ -93,7 +94,22 @@ public class ChatTemplate extends AbstractTemplate implements ChatOperations {
 		return slackResponse;
 
 	}
+	
+	@Override
+	public SlackMessageResponse postMessage(String message, String channelNameOrId, String usernameOrBotName) {
+		MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
+		map.add("channel", channelNameOrId);
+		map.add("text", message);
+		map.add("username", usernameOrBotName);
+		map.add("as_user", "false");
+		map.add("unfurl_links", "true");
+		
+		SlackMessageResponse slackResponse = post("/chat.postMessage", map, SlackMessageResponse.class);
+		return slackResponse;
 
+	}
+
+	
 	@Override
 	public SlackMessageResponse deleteMessage(String timestamp, String channelNameOrId, boolean asUser) {
 		MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
@@ -148,5 +164,7 @@ public class ChatTemplate extends AbstractTemplate implements ChatOperations {
 		return slackResponse;
 
 	}
+
+
 
 }
