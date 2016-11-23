@@ -1,4 +1,3 @@
-
 package org.springframework.social.slack.api;
 
 import java.io.FileNotFoundException;
@@ -13,9 +12,27 @@ import org.springframework.social.slack.api.impl.SlackTemplate;
 import org.springframework.social.slack.api.impl.model.SlackUser;
 import org.springframework.social.test.client.MockRestServiceServer;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
+import org.junit.Before;
+
 public class AbstractSlackApiTest {
 
 	protected static final String API_ACCESS_TOKEN_PROP = "API_ACCESS_TOKEN";
+	protected static final String TEST_USERNAME_PROP = "TEST_USERNAME";
+
+	protected static final Properties TEST_PROPERTIES = new Properties();
+
+	static {
+		InputStream is = ClassLoader.getSystemResourceAsStream("test.properties");
+		try {
+			TEST_PROPERTIES.load(is);
+		} catch (IOException ios) {
+			System.err.println("Can't load test properties!");
+		}
+	}
 
 	protected SlackTemplate slackTemplate;
 	protected SlackTemplate slack;
@@ -39,15 +56,11 @@ public class AbstractSlackApiTest {
 		return user;
 	}
 
-	private Properties readTestProperties() throws IOException {
-		Properties props = new Properties();
-		InputStream is = ClassLoader.getSystemResourceAsStream("test.properties");
-		props.load(is);
-		return props;
+	protected String getTestUserName() {
+		return TEST_PROPERTIES.getProperty(TEST_USERNAME_PROP);
 	}
 
-	private String getTestAPIToken() throws IOException {
-		return readTestProperties().getProperty(API_ACCESS_TOKEN_PROP);
+	private String getTestAPIToken() {
+		return TEST_PROPERTIES.getProperty(API_ACCESS_TOKEN_PROP);
 	}
-
 }
